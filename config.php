@@ -1,26 +1,23 @@
 <?php
 
 return [
-    'baseUrl' => '',
+    'baseUrl' => 'http://josepostiga.test',
     'production' => false,
-    'siteName' => 'Blog Starter Template',
-    'siteDescription' => 'Generate an elegant blog with Jigsaw',
-    'siteAuthor' => 'Author Name',
+    'siteName' => 'José Postiga / Senior Backend Developer',
+    'siteDescription' => 'This is my personal blog',
+    'siteAuthor' => 'José Postiga',
 
     // collections
     'collections' => [
-        'posts' => [
-            'author' => 'Author Name', // Default author, if not provided in a post
+        'articles' => [
+            'author' => 'José Postiga', // Default author, if not provided in a post
             'sort' => '-date',
             'path' => 'blog/{filename}',
         ],
-        'categories' => [
-            'path' => '/blog/categories/{filename}',
-            'posts' => function ($page, $allPosts) {
-                return $allPosts->filter(function ($post) use ($page) {
-                    return $post->categories ? in_array($page->getFilename(), $post->categories, true) : false;
-                });
-            },
+        'journal' => [
+            'author' => 'José Postiga', // Default author, if not provided in a post
+            'sort' => '-date',
+            'path' => 'journal/{filename}',
         ],
     ],
 

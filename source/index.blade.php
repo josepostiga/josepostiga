@@ -1,51 +1,15 @@
 @extends('_layouts.master')
 
 @section('body')
-    @foreach ($posts->where('featured', true) as $featuredPost)
-        <div class="w-full mb-6">
-            @if ($featuredPost->cover_image)
-                <img src="{{ $featuredPost->cover_image }}" alt="{{ $featuredPost->title }} cover image" class="mb-6">
-            @endif
+    <div class="block overflow-hidden mb-12">
+        <h1>Hello!</h1>
 
-            <p class="text-grey-darker font-medium my-2">
-                {{ $featuredPost->getDate()->format('F j, Y') }}
-            </p>
+        <img src="https://gravatar.com/avatar/{{ md5('josepostiga1990@gmail.com') }}?s=250" alt="José Postiga" class="flex rounded-full h-64 w-64 bg-contain mx-auto md:float-right my-2 md:ml-10">
 
-            <h2 class="text-3xl mt-0">
-                <a href="{{ $featuredPost->getUrl() }}" title="Read {{ $featuredPost->title }}" class="text-black font-extrabold">
-                    {{ $featuredPost->title }}
-                </a>
-            </h2>
+        <p class="mb-6">I'm <a href="https://twitter.com/josepostiga" target="_blank">@josepostiga</a>, a Senior Backend Developer at <a href="https://twitter.com/infraspeak" target="_blank">@infraspeak</a> by day, co-host on <a href="https://twitter.com/LaravelPortugal" target="_blank">@LaravelPortugal</a> Podcast and a contributor on various <a href="https://github.com/josepostiga" target="_blank">Open Source Software projects</a> by night!</p>
 
-            <p class="mt-0 mb-4">{!! $featuredPost->getExcerpt() !!}</p>
+        <p class="mb-6">I've been working with web related technologies since 2008 and I'm experient with Symfony, Laravel and CodeIgniter (PHP), Bootstrap, TailwindCSS, Bulma, jQuery, Vue (HTML/CSS, JS) and AdonisJS (NodeJS).</p>
 
-            <a href="{{ $featuredPost->getUrl() }}" title="Read - {{ $featuredPost->title }}" class="uppercase tracking-wide mb-4">
-                Read
-            </a>
-        </div>
-
-        @if (! $loop->last)
-            <hr class="border-b my-6">
-        @endif
-    @endforeach
-
-    @include('_components.newsletter-signup')
-
-    @foreach ($posts->where('featured', false)->take(6)->chunk(2) as $row)
-        <div class="flex flex-col md:flex-row md:-mx-6">
-            @foreach ($row as $post)
-                <div class="w-full md:w-1/2 md:mx-6">
-                    @include('_components.post-preview-inline')
-                </div>
-
-                @if (! $loop->last)
-                    <hr class="block md:hidden w-full border-b mt-2 mb-6">
-                @endif
-            @endforeach
-        </div>
-
-        @if (! $loop->last)
-            <hr class="w-full border-b mt-2 mb-6">
-        @endif
-    @endforeach
+        <p class="mb-6">Besides that, I like to write about <a href="/articles">tech/web/programming</a> topics and I share a lot of my work day on my <a href="/journal">journal</a>.</p>
+    </div>
 @stop
