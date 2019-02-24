@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-1 justify-end items-center text-right px-4">
+    <div class="flex flex-1 justify-end items-center text-right px-2">
         <div
             class="absolute md:relative w-full justify-end bg-white pin-l pin-t z-10 mt-7 md:mt-0 px-4 md:px-0"
             :class="{'hidden md:flex': ! searching}"

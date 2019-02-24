@@ -26,16 +26,16 @@
     <body class="flex flex-col justify-between min-h-screen bg-grey-lightest text-grey-darkest leading-normal font-sans">
         <header class="flex items-center shadow bg-white border-b h-24 py-4" role="banner">
             <div class="container flex items-center max-w-xl mx-auto px-6">
-                <nav class="hidden lg:flex items-center justify-end text-lg">
-                    <a title="{{ $page->siteName }}" href="/" class="mr-6 text-grey-darker hover:text-blue-dark {{ $page->isActive('/') ? 'active text-blue-dark' : '' }}">
+                <nav class="lg:flex items-center justify-end text-sm md:text-lg">
+                    <a title="{{ $page->siteName }}" href="/" class="mr-5 text-grey-darker hover:text-blue-dark {{ $page->isActive('/') ? 'active text-blue-dark' : '' }}">
                         About
                     </a>
 
-                    <a title="{{ $page->siteName }} Journal" href="/journal" class="mr-6 text-grey-darker hover:text-blue-dark {{ $page->isActive('/journal') ? 'active text-blue-dark' : '' }}">
+                    <a title="{{ $page->siteName }} Journal" href="/journal" class="mr-5 text-grey-darker hover:text-blue-dark {{ $page->isActive('/journal') ? 'active text-blue-dark' : '' }}">
                         Journal
                     </a>
 
-                    <a title="{{ $page->siteName }} Articles" href="/articles" class="mr-6 text-grey-darker hover:text-blue-dark {{ $page->isActive('/articles') ? 'active text-blue-dark' : '' }}">
+                    <a title="{{ $page->siteName }} Articles" href="/articles" class="mr-5 text-grey-darker hover:text-blue-dark {{ $page->isActive('/articles') ? 'active text-blue-dark' : '' }}">
                         Articles
                     </a>
                 </nav>
