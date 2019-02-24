@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="This is my personal blog">
+
+        <meta property="og:title" content="It&#039;s Friday and I&#039;m thinking about repositories! | José Postiga / Senior Backend Developer"/>
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://josepostiga.com/journal/2019-02-02-Its-friday-and-im-thinking-about-repositories"/>
+        <meta property="og:description" content="This is my personal blog" />
+
+        <title>José Postiga / Senior Backend Developer | It&#039;s Friday and I&#039;m thinking about repositories!</title>
+
+        <link rel="home" href="https://josepostiga.com">
+        <link rel="icon" href="/favicon.ico">
+        <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="José Postiga / Senior Backend Developer Atom Feed">
+
+            <meta property="og:title" content="It&#039;s Friday and I&#039;m thinking about repositories!" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://josepostiga.com/journal/2019-02-02-Its-friday-and-im-thinking-about-repositories"/>
+    <meta property="og:description" content="" />
+
+        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=30240e039ac150452ca0">
+    </head>
+
+    <body class="flex flex-col justify-between min-h-screen bg-grey-lightest text-grey-darkest leading-normal font-sans">
+        <header class="flex items-center shadow bg-white border-b h-24 py-4" role="banner">
+            <div class="container flex items-center max-w-xl mx-auto px-6">
+                <nav class="hidden lg:flex items-center justify-end text-lg">
+                    <a title="José Postiga / Senior Backend Developer" href="/" class="mr-6 text-grey-darker hover:text-blue-dark ">
+                        About
+                    </a>
+
+                    <a title="José Postiga / Senior Backend Developer Journal" href="/journal" class="mr-6 text-grey-darker hover:text-blue-dark ">
+                        Journal
+                    </a>
+
+                    <a title="José Postiga / Senior Backend Developer Articles" href="/articles" class="mr-6 text-grey-darker hover:text-blue-dark ">
+                        Articles
+                    </a>
+                </nav>
+
+                <div id="vue-search" class="flex flex-1 justify-end items-center">
+                    <search></search>
+                </div>
+            </div>
+        </header>
+
+        <main role="main" class="flex-auto w-full container max-w-xl mx-auto py-16 px-6">
+                        <img src="https://c10.patreonusercontent.com/3/eyJ3IjoxNjAwfQ%3D%3D/patreon-media/p/post/24400117/742cd4f95b3b4aa8a66f007a462f9877/2?token-time=1552176000&amp;token-hash=8yVESTz8WMeFK1P2xxmNEJVa0-gkmE2n4sHhfQ6gJMg%3D" alt="It&#039;s Friday and I&#039;m thinking about repositories! cover image" class="mb-2 w-full">
+    
+    <h1 class="leading-none mt-1 mb-2">It&#039;s Friday and I&#039;m thinking about repositories!</h1>
+
+    <p class="text-grey-darker text-xl md:mt-0">José Postiga  •  02/02/2019</p>
+
+    <div class="mb-10 pb-4" v-pre>
+        <p>Everybody loves Friday, right? I've no special reaction to Friday, really. I love what I do, so I'm always enjoying my days. However, weekends are when I spend a little more time studying and training. I think that continue improving and challenging ourselves is very important to keep being relevant in our work. Especially if you want to work your way up on your career. But I digress...</p>
+<p>Since today I needed to leave the office in the afternoon, I don't have many updates to share. I finally get to see my colleagues really try to change their work process and use work branches and pull requests to privilege the sharing of knowledge. Already saw a lot of exchange happening between them. I really hope that they get used to this new process because the big results will only come a few months from now when they realize that their domain knowledge improved.</p>
+<p>Changing subjects, and on a more personal level, I'm still working on HUB, although I haven't touched the subject in about two days. I was doubting that the unit tests were not being well done because I was creating some tests to guarantee that required relations to other models exist. In my mind, that was a violation of testing in isolation. However, after exposing my doubts to the Laravel Portugal Community, they quickly told me I was overreacting. So this project is still under heavy development. I'm about to start the first feature tests for the Users model.</p>
+<p>Talking about models, I've been recently thinking about Models and Repositories. If you don't know, Repositories (from the Repositories Pattern) are classes that the main objective is to abstract the persistent layer. This way, you can exchange the persistent layer drivers without needing to change anything else on your application. Just swap the concrete implementation injected as a dependency to the related repositories and you're golden. It's a pretty awesome pattern to follow.</p>
+<p>So, without much surprise, HUB will have the repository pattern implemented. Besides abstraction, I can control the data flowing from the application to the persistent layer, and vice-versa, which will help me keep my models clean. Also, if needed, I can apply other types of logic against the data, without polluting the models, like a cache system.</p>
+<p>Let's see how this weekend goes, in terms of more excited news about this project.</p>    </div>
+
+    <nav class="flex justify-between text-sm md:text-base">
+        <div>
+                            <a href="https://josepostiga.com/journal/2019-01-31-Thematic-day-and-a-football-match" title="Older Post: Thematic day and a football match">
+                    &LeftArrow; Thematic day and a football match
+                </a>
+                    </div>
+
+        <div>
+                            <a href="https://josepostiga.com/journal/2019-02-04-documentation-and-self-doubting" title="Newer Post: Documentation and self-doubting">
+                    Documentation and self-doubting &RightArrow;
+                </a>
+                    </div>
+    </nav>
+        </main>
+
+        <footer class="bg-white text-center text-sm mt-12 py-4" role="contentinfo">
+            <ul class="flex flex-col md:flex-row justify-center list-reset">
+                <li class="md:mr-2">
+                    &copy; José Postiga 2019.
+                </li>
+
+                <li>
+                    Built with <a href="http://jigsaw.tighten.co" title="Jigsaw by Tighten">Jigsaw</a>
+                    and <a href="https://tailwindcss.com" title="Tailwind CSS, a utility-first CSS framework">Tailwind CSS</a>.
+                    Theme &copy; <a href="https://tighten.co" title="Tighten website">Tighten</a>
+                </li>
+            </ul>
+        </footer>
+
+        <script src="/assets/build/js/main.js?id=a6021ca9737bdcd39961"></script>
+
+            </body>
+</html>

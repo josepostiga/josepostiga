@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="This is my personal blog">
+
+        <meta property="og:title" content="Documentation and self-doubting | José Postiga / Senior Backend Developer"/>
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://josepostiga.com/journal/2019-02-04-documentation-and-self-doubting"/>
+        <meta property="og:description" content="This is my personal blog" />
+
+        <title>José Postiga / Senior Backend Developer | Documentation and self-doubting</title>
+
+        <link rel="home" href="https://josepostiga.com">
+        <link rel="icon" href="/favicon.ico">
+        <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="José Postiga / Senior Backend Developer Atom Feed">
+
+            <meta property="og:title" content="Documentation and self-doubting" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://josepostiga.com/journal/2019-02-04-documentation-and-self-doubting"/>
+    <meta property="og:description" content="" />
+
+        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=30240e039ac150452ca0">
+    </head>
+
+    <body class="flex flex-col justify-between min-h-screen bg-grey-lightest text-grey-darkest leading-normal font-sans">
+        <header class="flex items-center shadow bg-white border-b h-24 py-4" role="banner">
+            <div class="container flex items-center max-w-xl mx-auto px-6">
+                <nav class="hidden lg:flex items-center justify-end text-lg">
+                    <a title="José Postiga / Senior Backend Developer" href="/" class="mr-6 text-grey-darker hover:text-blue-dark ">
+                        About
+                    </a>
+
+                    <a title="José Postiga / Senior Backend Developer Journal" href="/journal" class="mr-6 text-grey-darker hover:text-blue-dark ">
+                        Journal
+                    </a>
+
+                    <a title="José Postiga / Senior Backend Developer Articles" href="/articles" class="mr-6 text-grey-darker hover:text-blue-dark ">
+                        Articles
+                    </a>
+                </nav>
+
+                <div id="vue-search" class="flex flex-1 justify-end items-center">
+                    <search></search>
+                </div>
+            </div>
+        </header>
+
+        <main role="main" class="flex-auto w-full container max-w-xl mx-auto py-16 px-6">
+                        <img src="https://c10.patreonusercontent.com/3/eyJ3IjoxNjAwfQ%3D%3D/patreon-media/p/post/24468930/b24434b6c53f4168974e63ac945fa81a/7?token-time=1552176000&amp;token-hash=msIhYDp4pT0CUqIGX6tZaW1JFNIWSmCZ820h19c4E28%3D" alt="Documentation and self-doubting cover image" class="mb-2 w-full">
+    
+    <h1 class="leading-none mt-1 mb-2">Documentation and self-doubting</h1>
+
+    <p class="text-grey-darker text-xl md:mt-0">José Postiga  •  04/02/2019</p>
+
+    <div class="mb-10 pb-4" v-pre>
+        <p>The main tasks assigned to me are associated with documenting and helping my teammates implement code sniffers and fixers, to help keep our codebase in line with the current PSR-2 standard. So, as part of that work, I've been updating our internal documentation with the steps required to implement the necessary tools and processes so that everyone can configure them on their IDE/Code Editor.</p>
+<p>The tools we'll be using are PHP CodeSniffer (phpcs) and PHP Code Beautifier and Fixer (phpcbf) and, since we use Docker in development, I needed to make sure those commands can be used both for every IDE/Code Editor, currently in use on our team, and through the terminal.</p>
+<p>It was a fun work to do, because I had to learn about how Sublime Text's Phpcs plugin works, which order of arguments it uses and use shell scripts to run the command on a Docker container. The same for Visual Studio Code, although for this one I learnt that there's no &quot;native&quot; script that could be used to handle the shell scripts so I had to find a workaround with &quot;Save and Run&quot; plugin, which executes commands after a file is saved.</p>
+<p>I learnt how to properly use the dirname script to fetch the file to handle and map, as a volume, to a PHP docker container with PHP CodeSniffer installed. I thought it would be much harder than actually was.</p>
+<p>In the end, I manage to see it quickly implemented on, at least, my team mate's Ricardo dev environment. It worked flawlessly. And, now, is fully documented, which will benefit any other new team member that'd join us, in the future. He/She just needs to follow the steps and have it properly configured in no time!</p>
+<p>You probably have heard of this, before, but documentation is very important. It consumes a lot of time, for sure, but it helps not only to consolidate our knowledge but can be used as a reference for other people. It makes all the difference, be it whatever type of project. Document everything!</p>
+<p>On another topic, I'd like to update you all on the HUB project. I had a little discussion with myself, regarding how to properly unit test a class that relies on relations with other classes.  All because I had some input, from a few colleagues, telling me that I should not test what I did not own. They were talking about the screenshot I shared on a previous post, where I was almost testing the Collection class' behaviour (which was a little overkill) but I transported that feedback to the work I was doing (testing the existence of a certain set of relations) and was doubting myself. Would it be best to do it or should I trust that the relations were there and fully functional?</p>
+<p>After thinking about it, I got to the conclusion that it makes perfect sense to test, even in unit testing, that the required relations do, in fact, exist, and even that they return the right instance of the objects (e.g.: a Collection).</p>
+<p>You might think I was too involved in details but, as the saying goes: &quot;The Devil is in the details&quot;.</p>    </div>
+
+    <nav class="flex justify-between text-sm md:text-base">
+        <div>
+                            <a href="https://josepostiga.com/journal/2019-02-02-Its-friday-and-im-thinking-about-repositories" title="Older Post: It&#039;s Friday and I&#039;m thinking about repositories!">
+                    &LeftArrow; It&#039;s Friday and I&#039;m thinking about repositories!
+                </a>
+                    </div>
+
+        <div>
+                            <a href="https://josepostiga.com/journal/2019-02-06-the-first-feedback" title="Newer Post: The first feedback">
+                    The first feedback &RightArrow;
+                </a>
+                    </div>
+    </nav>
+        </main>
+
+        <footer class="bg-white text-center text-sm mt-12 py-4" role="contentinfo">
+            <ul class="flex flex-col md:flex-row justify-center list-reset">
+                <li class="md:mr-2">
+                    &copy; José Postiga 2019.
+                </li>
+
+                <li>
+                    Built with <a href="http://jigsaw.tighten.co" title="Jigsaw by Tighten">Jigsaw</a>
+                    and <a href="https://tailwindcss.com" title="Tailwind CSS, a utility-first CSS framework">Tailwind CSS</a>.
+                    Theme &copy; <a href="https://tighten.co" title="Tighten website">Tighten</a>
+                </li>
+            </ul>
+        </footer>
+
+        <script src="/assets/build/js/main.js?id=a6021ca9737bdcd39961"></script>
+
+            </body>
+</html>

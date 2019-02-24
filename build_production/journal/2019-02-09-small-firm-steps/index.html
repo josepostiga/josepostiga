@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="This is my personal blog">
+
+        <meta property="og:title" content="Small, firm, steps | José Postiga / Senior Backend Developer"/>
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://josepostiga.com/journal/2019-02-09-small-firm-steps"/>
+        <meta property="og:description" content="This is my personal blog" />
+
+        <title>José Postiga / Senior Backend Developer | Small, firm, steps</title>
+
+        <link rel="home" href="https://josepostiga.com">
+        <link rel="icon" href="/favicon.ico">
+        <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="José Postiga / Senior Backend Developer Atom Feed">
+
+            <meta property="og:title" content="Small, firm, steps" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://josepostiga.com/journal/2019-02-09-small-firm-steps"/>
+    <meta property="og:description" content="" />
+
+        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=30240e039ac150452ca0">
+    </head>
+
+    <body class="flex flex-col justify-between min-h-screen bg-grey-lightest text-grey-darkest leading-normal font-sans">
+        <header class="flex items-center shadow bg-white border-b h-24 py-4" role="banner">
+            <div class="container flex items-center max-w-xl mx-auto px-6">
+                <nav class="hidden lg:flex items-center justify-end text-lg">
+                    <a title="José Postiga / Senior Backend Developer" href="/" class="mr-6 text-grey-darker hover:text-blue-dark ">
+                        About
+                    </a>
+
+                    <a title="José Postiga / Senior Backend Developer Journal" href="/journal" class="mr-6 text-grey-darker hover:text-blue-dark ">
+                        Journal
+                    </a>
+
+                    <a title="José Postiga / Senior Backend Developer Articles" href="/articles" class="mr-6 text-grey-darker hover:text-blue-dark ">
+                        Articles
+                    </a>
+                </nav>
+
+                <div id="vue-search" class="flex flex-1 justify-end items-center">
+                    <search></search>
+                </div>
+            </div>
+        </header>
+
+        <main role="main" class="flex-auto w-full container max-w-xl mx-auto py-16 px-6">
+                        <img src="https://c10.patreonusercontent.com/3/eyJ3IjoxNjAwfQ%3D%3D/patreon-media/p/post/24567847/1282baee17874af6a1375453c2ee24c3/7?token-time=1552176000&amp;token-hash=QSd3ZTg3NuNxnubtJidaolIsuBFucoIyFFkCvNrwLOQ%3D" alt="Small, firm, steps cover image" class="mb-2 w-full">
+    
+    <h1 class="leading-none mt-1 mb-2">Small, firm, steps</h1>
+
+    <p class="text-grey-darker text-xl md:mt-0">José Postiga  •  09/02/2019</p>
+
+    <div class="mb-10 pb-4" v-pre>
+        <p>Hey there! What have you been up to?</p>
+<p>I passed all day working on a report class, which will be responsible to fetch, and process, all maintenance work done in a building (or a set of buildings). It has been a challenge, not for the task, itself, but the domain logic I need to know before even start to make the queries. </p>
+<p>The most part of my day was about understanding all the dependencies associated with an entity, how their operator permissions influence the model scopes and how to associate them. I identified a few factories that needed to be created and got to the end of the day with a working first feature test: checking that the route was reachable. It looks simples but, to that simple test to work, all the &quot;world&quot; needed to be mapped and set up before the assertion runs and that was the bulk of the work.</p>
+<p>Monday I'll be solely focused on the queries and JSON response to pass the task back to my teammate Ricardo, which will be responsible to connect it to the view that'll be used to generate the PDF.</p>
+<p>I could have gone much faster if I skipped all the testing part, and some would say it was ok to do that, but it was not! I understand that shipping features is very important, but I can't jeopardise the quality of the code, especially when I still don’t master all the domain logic, or I risk injecting bugs or not catch other people's bugs before being pushed to production. It's best to be a little slow, at first, but then get a quality solution that works as designed and is tested.</p>
+<p>On another topic, I read a very good article about MVP (Minimum Viable Product), where the author explained why he hated MVP, as well as customers hates it, too! He showed some very good points and I think you should read it, too. You can access the article here: <a href="https://blog.asmartbear.com/slc.html">https://blog.asmartbear.com/slc.html</a></p>    </div>
+
+    <nav class="flex justify-between text-sm md:text-base">
+        <div>
+                            <a href="https://josepostiga.com/journal/2019-02-08-normalization-and-mocks" title="Older Post: Normalization and mocks">
+                    &LeftArrow; Normalization and mocks
+                </a>
+                    </div>
+
+        <div>
+                            <a href="https://josepostiga.com/journal/2019-02-11-structures-and-clean-code" title="Newer Post: Structures and clean code">
+                    Structures and clean code &RightArrow;
+                </a>
+                    </div>
+    </nav>
+        </main>
+
+        <footer class="bg-white text-center text-sm mt-12 py-4" role="contentinfo">
+            <ul class="flex flex-col md:flex-row justify-center list-reset">
+                <li class="md:mr-2">
+                    &copy; José Postiga 2019.
+                </li>
+
+                <li>
+                    Built with <a href="http://jigsaw.tighten.co" title="Jigsaw by Tighten">Jigsaw</a>
+                    and <a href="https://tailwindcss.com" title="Tailwind CSS, a utility-first CSS framework">Tailwind CSS</a>.
+                    Theme &copy; <a href="https://tighten.co" title="Tighten website">Tighten</a>
+                </li>
+            </ul>
+        </footer>
+
+        <script src="/assets/build/js/main.js?id=a6021ca9737bdcd39961"></script>
+
+            </body>
+</html>

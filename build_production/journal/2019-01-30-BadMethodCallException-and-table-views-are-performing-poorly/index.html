@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="This is my personal blog">
+
+        <meta property="og:title" content="BadMethodCallException and table views are performing poorly | José Postiga / Senior Backend Developer"/>
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://josepostiga.com/journal/2019-01-30-BadMethodCallException-and-table-views-are-performing-poorly"/>
+        <meta property="og:description" content="This is my personal blog" />
+
+        <title>José Postiga / Senior Backend Developer | BadMethodCallException and table views are performing poorly</title>
+
+        <link rel="home" href="https://josepostiga.com">
+        <link rel="icon" href="/favicon.ico">
+        <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="José Postiga / Senior Backend Developer Atom Feed">
+
+            <meta property="og:title" content="BadMethodCallException and table views are performing poorly" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://josepostiga.com/journal/2019-01-30-BadMethodCallException-and-table-views-are-performing-poorly"/>
+    <meta property="og:description" content="" />
+
+        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=30240e039ac150452ca0">
+    </head>
+
+    <body class="flex flex-col justify-between min-h-screen bg-grey-lightest text-grey-darkest leading-normal font-sans">
+        <header class="flex items-center shadow bg-white border-b h-24 py-4" role="banner">
+            <div class="container flex items-center max-w-xl mx-auto px-6">
+                <nav class="hidden lg:flex items-center justify-end text-lg">
+                    <a title="José Postiga / Senior Backend Developer" href="/" class="mr-6 text-grey-darker hover:text-blue-dark ">
+                        About
+                    </a>
+
+                    <a title="José Postiga / Senior Backend Developer Journal" href="/journal" class="mr-6 text-grey-darker hover:text-blue-dark ">
+                        Journal
+                    </a>
+
+                    <a title="José Postiga / Senior Backend Developer Articles" href="/articles" class="mr-6 text-grey-darker hover:text-blue-dark ">
+                        Articles
+                    </a>
+                </nav>
+
+                <div id="vue-search" class="flex flex-1 justify-end items-center">
+                    <search></search>
+                </div>
+            </div>
+        </header>
+
+        <main role="main" class="flex-auto w-full container max-w-xl mx-auto py-16 px-6">
+                        <img src="https://c10.patreonusercontent.com/3/eyJ3IjoxNjAwfQ%3D%3D/patreon-media/p/post/24338955/8921d4713890410f9421eeea01aa8e7c/4?token-time=1552176000&amp;token-hash=8yRJXD53cL6QVVS37mLer1dRlAEhYUSfio59G6Z3WbY%3D" alt="BadMethodCallException and table views are performing poorly cover image" class="mb-2 w-full">
+    
+    <h1 class="leading-none mt-1 mb-2">BadMethodCallException and table views are performing poorly</h1>
+
+    <p class="text-grey-darker text-xl md:mt-0">José Postiga  •  30/01/2019</p>
+
+    <div class="mb-10 pb-4" v-pre>
+        <p>Yesterday, after I published the daily blog post, I received a few e-mails regarding a pull request I made. The specific commit removed a call to Auth::login() since my tests were throwing an exception about method &quot;login&quot; not being found through the call to the Auth façade. We all make mistakes and I trusted that my test was right and, thus, removed the call without checking further the reason why. Stupid mistake, rightly caught by Gonçalo, which I selected as one of two reviewers, which broke the authentication with OAuth tokens.</p>
+<p>It was late, and since it was not yet on production (was on a dev branch), it could wait for the next day. So, the day came and the first thing I did after reaching the office was figuring out why that was happening. I checked everything! Which guard Laravel was configured to load, the data that was passing to the methods. Somehow, the logic was breaking, according to the stack trace, when the Macroable trait was handling the call to the login method (which, when using a façade, is called using the magic method <code>__call</code>). I was not getting why, so I called Gonçalo to help me understand since I've never gone this deep on the framework internals.</p>
+<p>Even he was not understanding why it was not working, until he remembered to search for every login method call, on every project's classes. While analysing the search results, he remembered that we had forced the injection of the login driver to use to &quot;api&quot; every time we call &quot;$this-&gt;actingAs()&quot; to mock an authentication as a specific user. </p>
+<p>Laravel has, by default, two main authentication mechanisms: Session and API. However, when using the Laravel Passport package, to support OAuth authentications, we get another driver: &quot;passport&quot;. So, when the Auth façade was called, when using oauth tokens, Laravel will need to use the &quot;passport&quot; driver but, since we forced the &quot;api&quot; driver to be used, everything got messed up! Removing this forcing fixed the problem, tests got back to green and I even checked the authentication methods manually.</p>
+<p>Everyone messes up, sometimes. 🤷‍♂️</p>
+<p>In between this debug session, I attend the second phase of the sprint #51 planning. While discussing the issues we were planning, a colleague of mine, Gedielson (we call him Jedi), was talking about poor performance in our tables views and that we should create the SQL statements directly on our code. I'll be honest by saying that I don't know much about table's views, but the feedback I had, from other professionals, was that it would never perform worst than creating the queries within our codebase. In fact, using views, we would be transferring complexity to the DBMS layer and, thus, simplifying the access to that views' data because, then, we could use basic select statements.</p>
+<p>With that in mind, I questioned him about his statement and he explained to me that the problem was not the access of the data (the select part) but the use of views with joins to other tables and sub-queries and that was the culprid, making the database work with unnecessary effort and should be optimized using raw queries. [1]</p>
+<p>That made complete sense to me. Always learning! 😏</p>
+<p>We finish the day making the last tests against the features and improvements made during sprint #50 and deployed to production! 🚀 Sprint #50 finished with success. Now, let's go to sprint #51!</p>
+<hr />
+<p>[1] I was called to attention, by my colleague (and CTO) Luis, that update operations, on Table Views, don't exist. I misunderstood the conversation I had with Jedi, when he talked about making operations on the views, when he was refering to Joins and not updates (duh). Always learning! Thank you, Luis. (edited on Feb 5 2019).</p>    </div>
+
+    <nav class="flex justify-between text-sm md:text-base">
+        <div>
+                            <a href="https://josepostiga.com/journal/2019-01-29-think-twice" title="Older Post: Think twice">
+                    &LeftArrow; Think twice
+                </a>
+                    </div>
+
+        <div>
+                            <a href="https://josepostiga.com/journal/2019-01-31-Thematic-day-and-a-football-match" title="Newer Post: Thematic day and a football match">
+                    Thematic day and a football match &RightArrow;
+                </a>
+                    </div>
+    </nav>
+        </main>
+
+        <footer class="bg-white text-center text-sm mt-12 py-4" role="contentinfo">
+            <ul class="flex flex-col md:flex-row justify-center list-reset">
+                <li class="md:mr-2">
+                    &copy; José Postiga 2019.
+                </li>
+
+                <li>
+                    Built with <a href="http://jigsaw.tighten.co" title="Jigsaw by Tighten">Jigsaw</a>
+                    and <a href="https://tailwindcss.com" title="Tailwind CSS, a utility-first CSS framework">Tailwind CSS</a>.
+                    Theme &copy; <a href="https://tighten.co" title="Tighten website">Tighten</a>
+                </li>
+            </ul>
+        </footer>
+
+        <script src="/assets/build/js/main.js?id=a6021ca9737bdcd39961"></script>
+
+            </body>
+</html>
