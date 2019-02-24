@@ -1,6 +1,6 @@
 # My personal Blog
 
-This repository contains all my blog platform, journal and articles related data. Visit [josepostiga.com](josepostiga.com) to see it live.
+This repository contains all my blog platform, journal and articles related data. Visit [josepostiga.com](https://josepostiga.com) to see it live.
 
 # License
 
