@@ -1,24 +1,20 @@
 ---
 pagination:
     collection: journal
-    perPage: 5
+    perPage: 2
 ---
 @extends('_layouts.master')
 
 @push('meta')
-    <meta property="og:title" content="{{ $page->siteName }} Blog" />
+    <meta property="og:title" content="{{ $page->siteName }} Journal" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{{ $page->getUrl() }}"/>
-    <meta property="og:description" content="The list of blog posts for {{ $page->siteName }}" />
+    <meta property="og:description" content="The journal for {{ $page->siteName }}" />
 @endpush
 
 @section('body')
-    @foreach ($pagination->items as $article)
-        @include('_components.article-preview-inline')
-
-        @if ($article != $pagination->items->last())
-            <hr class="border-b my-6">
-        @endif
+    @foreach ($pagination->items as $journal)
+        @include('_components.entry-preview-inline')
     @endforeach
 
     @if ($pagination->pages->count() > 1)

@@ -6,19 +6,15 @@ pagination:
 @extends('_layouts.master')
 
 @push('meta')
-    <meta property="og:title" content="{{ $page->siteName }} Blog" />
+    <meta property="og:title" content="{{ $page->siteName }} Articles" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{{ $page->getUrl() }}"/>
-    <meta property="og:description" content="The list of blog posts for {{ $page->siteName }}" />
+    <meta property="og:description" content="The list of articles for {{ $page->siteName }}" />
 @endpush
 
 @section('body')
     @foreach ($pagination->items as $article)
         @include('_components.article-preview-inline')
-
-        @if ($article != $pagination->items->last())
-            <hr class="border-b my-6">
-        @endif
     @endforeach
 
     @if ($pagination->pages->count() > 1)

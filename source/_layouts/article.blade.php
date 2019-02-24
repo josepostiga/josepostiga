@@ -9,14 +9,14 @@
 
 @section('body')
     @if ($page->cover_image)
-        <img src="{{ $page->cover_image }}" alt="{{ $page->title }} cover image" class="mb-2">
+        <img src="{{ $page->cover_image }}" alt="{{ $page->title }} cover image" class="mb-2 w-full">
     @endif
 
-    <h1 class="leading-none mb-2">{{ $page->title }}</h1>
+    <h1 class="leading-none mt-1 mb-2">{{ $page->title }}</h1>
 
-    <p class="text-grey-darker text-xl md:mt-0">{{ $page->author }}  •  {{ date('F j, Y', $page->date) }}</p>
+    <p class="text-grey-darker text-xl md:mt-0">{{ $page->author }}  •  {{ date('d/m/Y', $page->date) }}</p>
 
-    <div class="border-b border-blue-lighter mb-10 pb-4" v-pre>
+    <div class="mb-10 pb-4" v-pre>
         @yield('content')
     </div>
 
