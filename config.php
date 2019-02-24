@@ -12,7 +12,7 @@ return [
         'articles' => [
             'author' => 'José Postiga', // Default author, if not provided in a post
             'sort' => '-date',
-            'path' => 'blog/{filename}',
+            'path' => 'articles/{filename}',
         ],
         'journal' => [
             'author' => 'José Postiga', // Default author, if not provided in a post
