@@ -1,6 +1,6 @@
 [build]
 PHP_VERSION=7.2
-NODE_ENV=production
+NODE_ENV="production"
 
-command = "./vendor/bin/jigsaw build"
-publish = "/build_local"
+command="./vendor/bin/jigsaw build"
+publish="/build_local"
