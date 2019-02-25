@@ -1,0 +1,3 @@
+[build]
+command = "source /opt/buildhome/.phpbrew/bashrc && phpbrew install 7.1.3 +default && phpbrew switch 7.1.3 && phpbrew app get composer && composer require tightenco/jigsaw && ./vendor/bin/jigsaw build"
+publish = "/build_local"
