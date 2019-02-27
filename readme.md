@@ -6,6 +6,6 @@ This repository contains all my blog platform, journal and articles related data
 
 # License
 
-All articles, pages and jornal entries are copyrighted to me.
+The articles, pages and jornal entries are copyrighted to me and can be redistributed, in any case.
 
-Everything else is copyrighted to their respective creators/maintainers.
+Everything else keeps the original [License](./LICENSE.txt)
