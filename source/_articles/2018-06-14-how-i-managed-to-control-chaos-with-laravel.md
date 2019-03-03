@@ -68,7 +68,7 @@ By the end of the first week of work, I’d have all my controllers, models and 
 
 One thing I made sure was done right was the encryption of all Bucket’s configuration, because it’ll be holding access information to our customers’ data. That’s a pretty sensible information to be holding in plain text, so I used the encrypt() and decrypt() methods that Laravel has at our disposal. I’d encrypt the data before saving it to the database and decrypt it only when accessing them.
 
-After this, I stepped back and thought a little more about how the system was going to work. I definitely knew I’d need to use queuable classes to make the application as snappy as possible, by sending the real work to the be handled on the background. But how to best approach this? How should my system handle that? To help me think, I picked up my notepad and came up with this workflow:
+After this, I stepped back and thought a little more about how the system was going to work. I definitely knew I’d need to use queuable classes to make the application as snappy as possible, by sending the real work to be handled on the background. But how to best approach this? How should my system handle that? To help me think, I picked up my notepad and came up with this workflow:
 * A scheduled command should query for all the active Buckets that were eligible for processing.
 * For each active Bucket found, a new Process Job should be dispatched to connect to the source defined.
 * For each data (should it be a message, a file or other supported media) the respective Process Job should get the Bucket’s rules and only process the data that passed every rule.
