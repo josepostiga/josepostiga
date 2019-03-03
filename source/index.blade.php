@@ -11,5 +11,7 @@
         <p class="mb-6">I've been working with web related technologies since 2008 and I'm experient with Symfony, Laravel and CodeIgniter (PHP), Bootstrap, TailwindCSS, Bulma, jQuery, Vue (HTML/CSS, JS) and AdonisJS (NodeJS).</p>
 
         <p class="mb-6">Besides that, I like to write about <a href="/articles">tech/web/programming</a> topics and I share a lot of my work day on my <a href="/journal">journal</a>.</p>
+
+        <p class="mb-6">You can see my career history at <a href="https://www.linkedin.com/in/josepostiga/" target="_blank">LinkedIn</a>. Also, be sure to check my <a href="https://instagram.com/jose.postiga" target="_blank">Instagram</a> account. I usually share a lot of pictures, there.</p>
     </div>
 @stop
