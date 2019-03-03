@@ -33,7 +33,7 @@ After I finished publishing my new blog, like a good developer I am, I went to p
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">After so many years without a personal <a href="https://twitter.com/hashtag/website?src=hash&amp;ref_src=twsrc%5Etfw">#website</a>, I&#39;ve just finished creating one! Thanks <a href="https://twitter.com/TightenCo?ref_src=twsrc%5Etfw">@TightenCo</a> for the awesome <a href="https://twitter.com/hashtag/jigsaw?src=hash&amp;ref_src=twsrc%5Etfw">#jigsaw</a> project. Really enjoyable dev experience, <a href="https://twitter.com/hashtag/markdown?src=hash&amp;ref_src=twsrc%5Etfw">#markdown</a> support is awesome and by generating static sites, I&#39;m able to deploy it to <a href="https://twitter.com/github?ref_src=twsrc%5Etfw">@github</a> <a href="https://twitter.com/hashtag/pages?src=hash&amp;ref_src=twsrc%5Etfw">#pages</a> in no time!🚀</p>&mdash; José Postiga (@josepostiga) <a href="https://twitter.com/josepostiga/status/1099507598003503104?ref_src=twsrc%5Etfw">February 24, 2019</a></blockquote>
 
-Not long after posting it Will Power, a fellow developer, shared this interesting information:
+Not long after posting it Wilbur Powery E., a fellow developer, shared this interesting information:
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Tip: Use <a href="https://twitter.com/Netlify?ref_src=twsrc%5Etfw">@Netlify</a>, thank me later 🤠</p>&mdash; Wilbur Powery E. (@wilburpowery) <a href="https://twitter.com/wilburpowery/status/1099507994918875142?ref_src=twsrc%5Etfw">February 24, 2019</a></blockquote> 
 
