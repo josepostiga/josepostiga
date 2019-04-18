@@ -3,8 +3,8 @@ extends: _layouts.article
 section: content
 title: How I managed to control chaos with Laravel
 date: 2018-06-14
-description: 
 cover_image: https://cdn-images-1.medium.com/max/800/0*_nYV0zRg4leoLAvL
+description: "Automatizing fetching, normalizing and storing information from different online sources without breaking a sweat."
 ---
 
 ## A little of context
