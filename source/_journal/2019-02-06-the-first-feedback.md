@@ -3,8 +3,8 @@ extends: _layouts.journal
 section: content
 title: The first feedback
 date: 2019-02-06
-cover_image: https://c10.patreonusercontent.com/3/eyJ3IjoxNjAwfQ%3D%3D/patreon-media/p/post/24499745/0874e5f9e1a742cd929207b4b55d6595/3?token-time=1552176000&token-hash=yItBkSpPxW8_X2ls6CcbIwHQSGFbBegz2IESI6sa6MQ%3D
-description: 
+cover_image: https://cdn-images-1.medium.com/max/800/0*1lNboYXpRIV68H6L
+description: "oday was an interesting day. I found out I already have a (very) small audience!"
 ---
 
 Today was an interesting day. I found out I already have a (very) small audience! I've been aware that a few of my colleagues, including my CTO, Luis Martins, have been reading my posts. He (Luis), in fact, call to my attention on a tech detail (an error regarding my statement about low performant table views) it felt good to know that he cared enough to correct me. It felt really good.

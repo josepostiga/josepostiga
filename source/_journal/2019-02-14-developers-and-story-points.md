@@ -3,8 +3,8 @@ extends: _layouts.journal
 section: content
 title: Developers and story points
 date: 2019-02-14
-cover_image: https://c10.patreonusercontent.com/3/eyJ3IjoxNjAwfQ%3D%3D/patreon-media/p/post/24710698/fe49c42f32d94716acea0fcdd195c19d/10?token-time=1552176000&token-hash=UzwidMK331lRJhYFvIhUh-KPuz3vciBPUioIvgV5PhY%3D
-description: 
+cover_image: https://cdn-images-1.medium.com/max/800/0*2ZCNn53-LTvdBAl_
+description: "Another interesting conversation between the Team, at Infraspeak, today."
 ---
 
 Hey there! How was your day?

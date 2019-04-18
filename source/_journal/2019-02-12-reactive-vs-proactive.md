@@ -3,12 +3,10 @@ extends: _layouts.journal
 section: content
 title: Reactive VS Proactive
 date: 2019-02-12
-cover_image: https://c10.patreonusercontent.com/3/eyJ3IjoxNjAwfQ%3D%3D/patreon-media/p/post/24660425/614cfa6d120c40e7ae883b501bec1bb0/4?token-time=1552176000&token-hash=nEltTXIzr2-6xjxAbeE4vgPBDKlbet5xdgh_fox3OtU%3D
-description: 
+cover_image: https://cdn-images-1.medium.com/max/800/0*2v9GFwpeN5h9TRNF
+description: "I had an amazing discussion with my colleague Gonçalo, today."
 ---
 Hey there! How was your weekend? Ready for another week full of opportunities?
-
-Hey there! How was your day?
 
 I had an amazing discussion with my colleague Gonçalo, today. We discussed when to be proactive and when to be reactive when it comes to software maintenance. I'm all about proactiveness. He was a little of both.
 

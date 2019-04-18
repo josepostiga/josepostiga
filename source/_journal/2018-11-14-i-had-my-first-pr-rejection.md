@@ -3,7 +3,7 @@ extends: _layouts.journal
 section: content
 title: I had my first PR rejection
 date: 2018-11-14
-description: 
+description: "Yeah, it sucks."
 ---
 
 Yeah, it sucks.

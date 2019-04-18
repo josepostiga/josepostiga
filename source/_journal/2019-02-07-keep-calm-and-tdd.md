@@ -3,8 +3,8 @@ extends: _layouts.journal
 section: content
 title: Keep calm and TDD
 date: 2019-02-07
-cover_image: https://c10.patreonusercontent.com/3/eyJ3IjoxNjAwfQ%3D%3D/patreon-media/p/post/24524585/101de3176e934eba8c8285588d841440/1?token-time=1552176000&token-hash=zE6nIeydaulUqZ5tk-s1a_R0xdOkQq_g-2qD8kv-Xww%3D
-description: 
+cover_image: https://cdn-images-1.medium.com/max/800/0*ID2Bi5YRIXDGAUah
+description: "Today was a very calm day."
 ---
 
 Today was a very calm day. I finally confirmed that the code sniffers and fixers are configured on all of my teammates' computers. I continue observing how they're reacting to the new development process, with the pull requests, code reviews and PSR-2 compliant code. So far, so good. I'm really proud of their effort. 👌

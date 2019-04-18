@@ -3,8 +3,8 @@ extends: _layouts.journal
 section: content
 title: BadMethodCallException and table views are performing poorly
 date: 2019-01-30
-cover_image: https://c10.patreonusercontent.com/3/eyJ3IjoxNjAwfQ%3D%3D/patreon-media/p/post/24338955/8921d4713890410f9421eeea01aa8e7c/4?token-time=1552176000&token-hash=8yRJXD53cL6QVVS37mLer1dRlAEhYUSfio59G6Z3WbY%3D
-description: 
+cover_image: https://cdn-images-1.medium.com/max/800/0*D75cx9-F9YxRLQmO
+description: "Yesterday, after I published the daily blog post, I received a few e-mails regarding a pull request I made."
 ---
 
 Yesterday, after I published the daily blog post, I received a few e-mails regarding a pull request I made. The specific commit removed a call to Auth::login() since my tests were throwing an exception about method "login" not being found through the call to the Auth façade. We all make mistakes and I trusted that my test was right and, thus, removed the call without checking further the reason why. Stupid mistake, rightly caught by Gonçalo, which I selected as one of two reviewers, which broke the authentication with OAuth tokens.

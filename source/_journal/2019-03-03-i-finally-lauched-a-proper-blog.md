@@ -4,7 +4,7 @@ section: content
 title: I finally launched a proper blog!
 date: 2019-03-03
 cover_image: https://images.unsplash.com/1/irish-hands.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80
-description: 
+description: "After so many years without a dedicated blog platform, I thought it was time to launch one."
 ---
 
 After so many years without a dedicated blog platform, I thought it was time to launch one. Until now, I've relied on platforms like Wordpress, Medium, Patreon and alike, which have been useful so far. Using a third-party platform is both convenient and cheap. For instance, using the Wordpress or Medium platform allows for bigger exposure of my work, and is free to host.

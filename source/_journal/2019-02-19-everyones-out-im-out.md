@@ -3,8 +3,8 @@ extends: _layouts.journal
 section: content
 title: Everyone's out; I'm out...
 date: 2019-02-19
-cover_image: https://c10.patreonusercontent.com/3/eyJ3IjoxNjAwfQ%3D%3D/patreon-media/p/post/24820597/bb708bbe5b1b405eba5b1b4b0d1392a6/1?token-time=1552176000&token-hash=t-O5fUGlUqZxojqB2b8SLYDgwkuJOoG5gXaRu6t5eGc%3D
-description: 
+cover_image: https://cdn-images-1.medium.com/max/800/0*_nZzZlTkF_zTEtds
+description: "Today, the majority of the Team was working from home."
 ---
 
 Hey there. How was your day?

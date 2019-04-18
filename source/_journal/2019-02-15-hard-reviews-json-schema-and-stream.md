@@ -3,8 +3,8 @@ extends: _layouts.journal
 section: content
 title: Hard reviews, JSON Schema and stream!
 date: 2019-02-15
-cover_image: https://c10.patreonusercontent.com/3/eyJ3IjoxNjAwfQ%3D%3D/patreon-media/p/post/24732909/2b1fe331211f460a95bd840eb7823f86/2?token-time=1552176000&token-hash=eMTAzEX6BbScZcAfp_DFZpYQakK-3wodJn1NLbIYmYw%3D
-description: 
+cover_image: https://cdn-images-1.medium.com/max/800/0*GCy9Z0AXza6bG-Xj
+description: "So, today, was the Sprint Retrospective."
 ---
 
 Hey there. How was your day?

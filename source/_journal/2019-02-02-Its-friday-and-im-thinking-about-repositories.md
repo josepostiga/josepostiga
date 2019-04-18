@@ -3,8 +3,8 @@ extends: _layouts.journal
 section: content
 title: It's Friday and I'm thinking about repositories!
 date: 2019-02-02
-cover_image: https://c10.patreonusercontent.com/3/eyJ3IjoxNjAwfQ%3D%3D/patreon-media/p/post/24400117/742cd4f95b3b4aa8a66f007a462f9877/2?token-time=1552176000&token-hash=8yVESTz8WMeFK1P2xxmNEJVa0-gkmE2n4sHhfQ6gJMg%3D
-description: 
+cover_image: https://cdn-images-1.medium.com/max/800/0*biIvpGwagpgDHoND
+description: "Everybody loves Friday, right? I've no special reaction to Friday, really."
 ---
 
 Everybody loves Friday, right? I've no special reaction to Friday, really. I love what I do, so I'm always enjoying my days. However, weekends are when I spend a little more time studying and training. I think that continue improving and challenging ourselves is very important to keep being relevant in our work. Especially if you want to work your way up on your career. But I digress...

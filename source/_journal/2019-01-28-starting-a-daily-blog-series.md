@@ -4,7 +4,7 @@ section: content
 title: Starting a daily blog series
 date: 2019-01-28
 cover_image: https://images.unsplash.com/photo-1483546363825-7ebf25fb7513?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80
-description: 
+description: "This is going to be a big challenge for me!"
 ---
 
 First of all, this is going to be a big challenge for me, to expose myself this way, but I think it'll be a great experience! I'm going to start creating a daily post about my professional experience.

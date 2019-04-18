@@ -3,8 +3,8 @@ extends: _layouts.journal
 section: content
 title: Think twice
 date: 2019-01-29
-cover_image: https://c10.patreonusercontent.com/3/eyJ3IjoxNjAwfQ%3D%3D/patreon-media/p/post/24312911/b5a3658641e74f0e9149d4d8fb7dff19/2?token-time=1552176000&token-hash=8i4nmVCYCv2yN2Qq7jbAxr2RCxk2ENcoD2t2dauBmr0%3D
-description: 
+cover_image: https://cdn-images-1.medium.com/max/800/0*s7b9hxxH3mvMQcyR
+description: "Two major things happened today: I did overpass the difficulty I talked about, on yesterday's daily blog post, and the Team discussed the strategy for the next 3 weeks."
 ---
 
 Two major things happened today: I did overpass the difficulty I talked about, on yesterday's daily blog post, and the Team discussed the strategy for the next 3 weeks.

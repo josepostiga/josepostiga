@@ -3,8 +3,8 @@ extends: _layouts.journal
 section: content
 title: Sprint's final sprint
 date: 2019-02-13
-cover_image: https://c10.patreonusercontent.com/3/eyJ3IjoxNjAwfQ%3D%3D/patreon-media/p/post/24682904/cdf476615d18405c86785c10aeebec01/1?token-time=1552176000&token-hash=d2qR7XuUAGZOpP80h-xY_1r2Q-XdXpjkln_X-zq59VM%3D
-description: 
+cover_image: https://cdn-images-1.medium.com/max/800/0*H1ArzrNGm6NwL_ee
+description: "Today I continued my work on the report class."
 ---
 
 Hey there, how was your day?

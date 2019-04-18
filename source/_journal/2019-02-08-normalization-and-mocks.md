@@ -3,8 +3,8 @@ extends: _layouts.journal
 section: content
 title: Normalization and mocks
 date: 2019-02-08
-cover_image: https://c10.patreonusercontent.com/3/eyJ3IjoxNjAwfQ%3D%3D/patreon-media/p/post/24547191/dd0571cd7b524c74851e921b27f7acf9/2?token-time=1552176000&token-hash=_VXE-mcGNEJifBM3fOk36e_WWflqn4U4uADLB6KsZXA%3D
-description: 
+cover_image: https://cdn-images-1.medium.com/max/800/0*E_Y_k8S8Si_AJULv
+description: "I finally finished all my tasks regarding the implementation of the code sniffers and fixers on all my teammates' computers"
 ---
 
 I finally finished all my tasks regarding the implementation of the code sniffers and fixers on all my teammates' computers and advanced to other, more challenging tasks. The one I'm currently working on is related to reports generation.

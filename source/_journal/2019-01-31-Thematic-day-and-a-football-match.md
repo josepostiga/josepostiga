@@ -3,8 +3,8 @@ extends: _layouts.journal
 section: content
 title: Thematic day and a football match
 date: 2019-01-31
-cover_image: https://c10.patreonusercontent.com/3/eyJ3IjoxNjAwfQ%3D%3D/patreon-media/p/post/24370787/dfadb37a70694e46828637254ef497a7/5?token-time=1552176000&token-hash=IeeztVkCNYesvscRAjJ4nqI50c4Yq3UocAqMX_Kcqvc%3D
-description: 
+cover_image: https://cdn-images-1.medium.com/max/800/0*lyfCn3WPnh3cAzsm
+description: "Today was one of those nice and quiet days, where nothing really notorious happens." 
 ---
 
 Today was one of those nice and quiet days, where nothing really notorious happens. It was a thematic day (like a hackathon), dedicated to resolving a type of issues that have not a significant impact on our customer's day-to-day work, but that we know that must be dealt with, sometime in the future.

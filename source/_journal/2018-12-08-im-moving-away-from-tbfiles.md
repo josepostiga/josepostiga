@@ -3,7 +3,7 @@ extends: _layouts.journal
 section: content
 title: I'm moving away from TBFiles
 date: 2018-12-08
-description: 
+description: "January 2019, I'll start working on another company..."
 ---
 
 If you follow my work, you know I've been working on a company called TBFiles since the first trimester of this year. However, on January 2019, I'll start working on another company: Infraspeak.

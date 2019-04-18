@@ -3,8 +3,8 @@ extends: _layouts.journal
 section: content
 title: Documentation and self-doubting
 date: 2019-02-04
-cover_image: https://c10.patreonusercontent.com/3/eyJ3IjoxNjAwfQ%3D%3D/patreon-media/p/post/24468930/b24434b6c53f4168974e63ac945fa81a/7?token-time=1552176000&token-hash=msIhYDp4pT0CUqIGX6tZaW1JFNIWSmCZ820h19c4E28%3D
-description: 
+cover_image: https://cdn-images-1.medium.com/max/800/0*O2lu_Zm8V1-2R9q0
+description: "The main tasks assigned to me are associated with documenting and helping my teammates implement code sniffers and fixers..."
 ---
 
 The main tasks assigned to me are associated with documenting and helping my teammates implement code sniffers and fixers, to help keep our codebase in line with the current PSR-2 standard. So, as part of that work, I've been updating our internal documentation with the steps required to implement the necessary tools and processes so that everyone can configure them on their IDE/Code Editor.

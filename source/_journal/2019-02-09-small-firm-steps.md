@@ -3,8 +3,8 @@ extends: _layouts.journal
 section: content
 title: Small, firm, steps
 date: 2019-02-09
-cover_image: https://c10.patreonusercontent.com/3/eyJ3IjoxNjAwfQ%3D%3D/patreon-media/p/post/24567847/1282baee17874af6a1375453c2ee24c3/7?token-time=1552176000&token-hash=QSd3ZTg3NuNxnubtJidaolIsuBFucoIyFFkCvNrwLOQ%3D
-description: 
+cover_image: https://cdn-images-1.medium.com/max/800/0*RPVATmE2nc-thu9e
+description: "I passed all day working on a report class..."
 ---
 
 Hey there! What have you been up to?

@@ -3,8 +3,8 @@ extends: _layouts.journal
 section: content
 title: Structures and clean code
 date: 2019-02-11
-cover_image: https://c10.patreonusercontent.com/3/eyJ3IjoxNjAwfQ%3D%3D/patreon-media/p/post/24634449/b0e9e612192d4bd5ac6d476e4f4765a7/4?token-time=1552176000&token-hash=bZdn8gqyfAXVPmv-bh8jBy8mu2wJ6Lg7LVF4Bdc8j_g%3D
-description: 
+cover_image: https://cdn-images-1.medium.com/max/800/0*ytJ36eq7HSIeYUKM
+description: "Today I started my day reading the powerful, insightful and intriguing book 'Clean Code', by Robert C. 'Uncle Bob' Martin."
 ---
 Hey there! How was your weekend? Ready for another week full of opportunities?
 

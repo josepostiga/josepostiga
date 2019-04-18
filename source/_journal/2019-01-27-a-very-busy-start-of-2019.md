@@ -4,7 +4,7 @@ section: content
 title: A very busy start of 2019
 date: 2019-01-27
 cover_image: https://images.unsplash.com/photo-1510751190565-de07085fcad6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2088&q=80
-description: 
+description: "A lot more has changed in my life"
 ---
 
 Last month I announced that I'd be changing companies, leaving TBFiles and join Infraspeak. Since that, a lot more has changed in my life.
