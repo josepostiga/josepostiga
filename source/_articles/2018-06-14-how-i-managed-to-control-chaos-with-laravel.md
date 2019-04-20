@@ -6,6 +6,7 @@ date: 2018-06-14
 cover_image: https://cdn-images-1.medium.com/max/800/0*_nYV0zRg4leoLAvL
 description: "Automatizing fetching, normalizing and storing information from different online sources without breaking a sweat."
 ---
+> Originally posted on [Medium](https://medium.com/@josepostiga/how-i-managed-to-control-chaos-with-laravel-d47b9444a451)
 
 ## A little of context
 
