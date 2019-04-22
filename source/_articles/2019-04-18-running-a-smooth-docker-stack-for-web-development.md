@@ -81,3 +81,34 @@ However, there's a catch. Or two, in this case:
 Don't worry! There's an easy way of using this properly without ever think about it. If you inspect the `id` command, available on your machine, you'll notice you have two options to get the ID and GROUP of the currently, logged in, user account. You can use that to programmatically get the correct values. Since bash commands can take sub-commands and evaluates them first, you can use `id -u` to get the user and `id -g` to get the group, before the main `docker run` command gets executed. So, you can run any docker container with your user:group mapping with the following partial: `docker run --user $(id -u):$(id -g) <the rest of your command goes here>`.
 
 Now, you can run `composer`, `artisan` or any other command and have all the generated files correctly associated with your user/group. You don't ever have to `chown` your way through those files, again, to be able to edit them on your IDE or code editor of choice.
+
+---
+
+## Let's play!
+
+Did you think I've forgotten about why you're reading this article? Of course not! Sorry for the delay, but I needed to first tell you about those details you just finished reading. But now, my young padawan, you're ready. So, without further ado, let's build an awesome stack for web development!
+
+This is what we'll do:
+* We'll create an NGINX container, that'll be responsible to act as a reverse proxy for all the projects you'll work. This container will receive a request (http://you-awesome-project.test, for example) and redirect to the proper container, to be handled.
+* We'll create a custom PHP image, based on an official image.
+* We'll create a docker-compose file that'll spin up the full stack infrastructure: server, application, database, and cache.
+
+The last point will try to simulate a real application environment, so you can see exactly what you can do with all the information on this article, and will help you understand it to a point where you should be capable of using it for your own projects.
+
+So... Hold on and enjoy the ride!
+
+### Starting with system architecture
+
+Like every new (tech) project, specifically infrastructure-related projects, we need to think, first, about how should we structure things... When I started to use Docker, I thought that I'd use a simple docker-compose file, on the root of my project, and be done with it. The infrastructure is project bounded, it's related and tightly coupled to it, so it made sense to manage the infrastructure that way. It seemed simple, too.
+
+However, I was not thinking about what to do with the Docker files, with service-related configuration files (e.g.: NGINX conf files or PHP's modules ini files). To handle this noise, I started using a `.docker` folder with everything inside, except the docker-compose file, which remains on the project root. This sounded liked a nice way to gently organize all my docker related files. The dot folder would hide it from the O.S. default file explorer and would put it on the top of the IDE/Code Editor file explorer (it could, even, be ignored by them). In spite of everything, that "special" folder could still be versioned and pushed to a remote code repository. Although there were many more files to manage, I would only have to worry about it once, so it still was "simple enough".
+
+Everything was fine until I started deploying things... All my infrastructure related files were coming attached to my code. Some sort of inception was going on, where I was creating a stack that'll deploy an application that had all infrastructure related files inside. That was not desired and, frankly, I hadn't thought about it until that time. Also, I was thinking that, although having the infrastructure definition on the project repository looked like I was helping others deploying, and testing, my work faster, the truth is that I was assuming that they'd use Docker, too. They could, but they don't have too... They could use other development environments, like virtual machines or, even, have all the dependencies installed on the host machine.
+
+Another million possibilities crossed my mind so I decided to separate my infrastructure files from my projects and started to think about how could I manage it in a simple, eloquent, way. I found myself creating a dedicated folder for this on my system account's home directory (in Linux is `/home/{username}`) named `Docker`. Since a picture is worth a thousand words, here's a print of the base structure:
+
+![Docker folder structure](/assets/images/articles/2019-04-18-docker-folder-structure.png "Docker folder structure")
+
+Besides the `Infrastructures` folder, which contains all docker-compose files for each project I work on, all others contain service related files with a mix of Dockerfiles, docker-compose files and, if needed, other types of files required for each service to run as I define. Having this structure helps me keeping everything organized but not all files are required to run the related services. Honestly, the only true important folders are the NGINX and PHP ones, which have specific configurations. The others are there mainly for reference or for holding the volumes' data folders (check Postgres and MariaDB folders) as they correspond to an official image on Docker Hub.
+
+The awesome part about this is that this folder can be versioned and since Docker allows me to replicate my infrastructure through the use of docker-composer files, I can quickly checkout this on another computer and have my development environment up-and-running in a very short period of time!
