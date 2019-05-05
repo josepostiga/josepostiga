@@ -1,7 +1,7 @@
 @extends('_layouts.master')
 
 @section('body')
-    <div class="block overflow-hidden">
+    <div class="mt-5 block overflow-hidden">
         <h1>Hello!</h1>
 
         <img src="https://gravatar.com/avatar/{{ md5('josepostiga1990@gmail.com') }}?s=250" alt="José Postiga" class="flex rounded-full h-64 w-64 bg-contain mx-auto md:float-right my-2 md:ml-10">
