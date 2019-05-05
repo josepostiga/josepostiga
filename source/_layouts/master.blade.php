@@ -46,11 +46,11 @@
             </div>
         </header>
 
-        <main role="main" class="flex-auto w-full container max-w-xl mx-auto py-6 px-6">
+        <main role="main" class="flex-auto w-full container max-w-xl mx-auto mt-5 py-6 px-6">
             @yield('body')
         </main>
 
-        <footer class="bg-white text-center text-sm mt-12 py-4" role="contentinfo">
+        <footer class="bg-white text-center text-sm mt-5 py-4" role="contentinfo">
             <ul class="flex flex-col md:flex-row justify-center list-reset">
                 <li class="md:mr-2">
                     &copy; José Postiga {{ date('Y') }}.
