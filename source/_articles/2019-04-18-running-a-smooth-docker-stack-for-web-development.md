@@ -6,47 +6,60 @@ date: 2019-04-18
 cover_image: https://images.unsplash.com/photo-1511578194003-00c80e42dc9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80
 description: "Let's skip the introductions and get down to business, baby!"
 ---
-Docker is the best way to build, share and run applications in the cloud. There're no doubts about that! You literally only have to configure your infrastructure once, programmatically, and can run on every cloud provider. It's amazingly fast, too. No wonder that everyone is crazy about this technology and are using it to support their most critical business services. Docker is the best way to build, share and run applications in the cloud. There're no doubts about that! You literally only have to configure your infrastructure once, programmatically, and can run on every cloud provider. It's amazingly fast, too. No wonder that everyone is crazy about this technology and are using it to support their most critical business services.
 
-Surely you've also heard, and read, about teams using Docker in their development process. You read that you can get up and running without messing around with installing specific versions of a software language or any other dependency. You simply `docker-compose up` and all services/dependencies are spawn and ready to use. Pretty cool. It doesn't sound too complicated, right?
+Docker is the best way to build, share and run applications in the cloud. There're no doubts about that! You literally only have to configure your infrastructure once, programmatically, and can run on every cloud provider. It's amazingly fast, too. No wonder that everyone is crazy about this technology and are using it to support their most critical business services.
 
-Well, that's not that simple! Using Docker for development can be a real PITA! I've been using Docker for development, for a little more than two years and I got to say I've had to handle a lot of problems to have a smooth environment set up!
+Surely you've also heard, and read, about teams using Docker in their development process, right? That you can get up and running, on any project, without messing around with your computer and not being worried about installing different (or specific) versions of a software language or any other dependency you might need. You simply `docker-compose up` and all services/dependencies are spawn and ready to use. Everything gets to run on an isolated container. Pretty cool, and it doesn't sound too complicated, right?
 
-That's what I'll share with you, in this article. This is not an "Introduction to Docker" type of article. This is "Put up your sleeves and let's get down to business" kind of article! My main goal is to enable you to acquire "hands-on" experience running Docker exclusively for your development workflow. All examples will be developed with PHP development in mind, but I think you can extrapolate to your situation, specifically.
+Well... As you'll see on this article, there're some details that make using Docker for development a real PITA! I've been using Docker for development for a little more than two years, at the time of writing this article, and I'd like to share how I've handled those details and got to a point of having a very smooth environment set up! My main goal is to enable you to acquire "hands-on" experience running Docker on your development workflow.
 
-Oh, and before dumping all the knowledge to you, I'll start by breaking my path to the final implementation into small parts, so you can understand where my decisions came from. So, let's get to it?
+But before I dump all the knowledge to you, we'll start slow, by breaking my path to the final implementation into small parts, so you can understand where my decisions came from. Let's get to it, shall we?
+
+_Note: All examples will be oriented with a web development in mind, but I think you can extrapolate to your situation, specifically._
 
 ---
 
 ## Part 1: With great Dockerfiles, comes great responsibility 
 
-This is not an introduction to Docker or Dockerfiles. You have the official [documentation](https://docs.docker.com/engine/reference/builder/) that has in-depth information about it. However, I'll tell you this: Dockerfiles contains additional commands that are called to assemble an image with the configurations, dependencies and other things you might need to run your containers!
+This is not an introduction to Docker or Dockerfiles. You have the official [documentation](https://docs.docker.com/engine/reference/builder/) that has in-depth information about it. However, I'll tell you this: Dockerfiles contains additional commands (steps) that are called to assemble a Docker image with configurations, dependencies and other things you might need to run your container. However, you should avoid using them for as long as you possibly can. 
 
-Having said this, I want to call for your attention that you should avoid using Dockerfiles for as long as you possibly can. It's not that these files are complicated because they're not. It's just that, as soon as you create a Dockerfile, you're taking responsibility about managing that specific image definition. It's not a decision you should take lightly. Dockerfiles, like any other system, need to be revisited from time to time and updated because, for example, a library you added has a new version available.
+It's not that these files are complicated, because they're not, it's just that, as soon as you create a Dockerfile, you're taking responsibility about managing that specific image definition. It's not a decision you should take lightly. Dockerfiles, like any other system of its kind, need to be revisited from time to time and updated because, for example, a library you added has a new version available.
 
-To avoid having this responsibility, you should first check for an official image on [Docker Hub](https://hub.docker.com/)! Let others have to worry about dependency management and update. You'll want to use your time to generate value, not worrying that your PHP base version is outdated... Right?
+To avoid having this responsibility, you should first check for an official image on [Docker Hub](https://hub.docker.com/)! Let others have to worry about dependency management and update. You'll want to use your time to generate value, not worrying about dependencies versions being outdated, or even worrying about vulnerabilities on those dependencies. Docker Hub has a lot of images for you to work with. Not only has many images creted by community members, bu also has official images, supported by the very companies and grousp that develop the underlying dependencies. For example, you can find official images for NGINX, PHP, Composer, Yarn, NodeJS, and a lot more!
 
-However, for those cases when you really have to create one, this is my advice, to you: try to use it as little as possible. The next sections should help you with that!
+However, for those cases when you really have to create one, try to use it as little as possible. The next sections will show you how.
 
-### Use the most possible recent version of the base image you need.
+### Choose a base image wisely
 
-A Dockerfile requires that you define a base image, which to apply your changes upon. This can be an O.S. version (Ubuntu 19.10, Debian 9, Fedora, Mint, etc.) or you can even use an image that already has a dependency installed (PHP 7.3, NGINX, MySQL, etc.) which already have an underlying O.S. definition and all dependencies and additional software needed to run what you want.
+A Dockerfile requires that you define a base image, which to apply your changes upon. This can be an O.S. version (Ubuntu 19.10, Debian 9, Fedora, Mint, etc.) or you can even use an image that already has a dependency installed (PHP 7.3, NGINX, MySQL, etc.) which already have an underlying O.S. definition and all configurations needed to run that dependency.
 
-For example, when creating a PHP Dockerfile, I'll try to use the most recent, stable, version that I'll like to support. So, to use PHP 7.2 (CLI), I'll start my Dockerfile as:
+For example, when creating a PHP Dockerfile, I'll try to use the most recent, stable, version needed for my situation. So, supposing I need to use PHP 7.2 (CLI), I'll start my Dockerfile with:
 
 ```dockerfile
 FROM php:7.2-cli
 ```
 
-Every command I add, next, will be run on top of this PHP 7.2 image, that'll have PHP and all dependencies needed to have it running without problems. By using a base image that already has almost everything I need, I'm also limiting my responsibility. I don't have to worry about every command it takes to install PHP and I don't have to worry about managing or updating it.
+Every command I add next will be run on top of this PHP 7.2 image, and have all dependencies needed to have it running without problems.
 
-### Condense as much commands as possible.
+By using a base image that already has almost everything I need, I'm also limiting my responsibility. I don't have to worry about every command it takes to install PHP and I don't have to worry about managing or updating it. If, by any chance, there's a new version of that base image, all I have to do is run the docker build command to fetch all updates available, directly related to the base image.
 
-To execute a command, you define it with the `RUN` statement. This statement runs the given command on the terminal while the final image is being compiled and corresponds to a layer. Each layer, upon being executed, is cached. This prevents the `docker build` process to run every command every time you execute it, saving you (a lot of) computation time.
+### Condense as much commands as possible
 
-So, if every `RUN` statement corresponds to a cacheable layer, it should make sense to use as few as possible, speeding up the compiling time. Well, no. Use it with care because every time you change the statement, the build process will re-execute the entire modified `RUN` statement, even if the only thing you changed was the order of the arguments. So, if you have a "big" `RUN` command, and change it, the cache is invalidated and you'll have to wait that it finishes executing (and, then, it gets cached, again).
+To execute a command, after defining the base image, you use the `RUN` directive. This runs the given command during the image build process, while the final image is being compiled, and corresponds to a layer. Each layer, upon being executed, is cached. This prevents the `docker build` process to run every command, every time you execute it, saving you (sometimes a lot of) computation time.
 
-Try to find a sweet spot between the number of `RUN` statements and the amount of work done on each one. I tend to separate mine in three sections: package installs, package configurations and packages activations.
+So, if every `RUN` directive can correspond to a cached layer, it should make sense to use as few as possible, speeding up the compiling time. Well, not so fast! You need to use it with care, because every time you change the statement, the build process will re-execute the entire modified `RUN` directive, even if the only thing you changed was the order of the arguments. So, if you have a "big" `RUN` command, and change it, the cache is invalidated and you'll have to wait that it finishes executing all work defined on that modified `RUN` directive and every one after.
+
+To avoid having this problem, often, you have to find a sweet spot between the number of `RUN` directives and the amount of work done on each. I tend to separate mines in three sections: package installs, package configurations and packages activations.
+
+### Keep your images on a diet
+
+The whole point of using Docker is to keep the dependencies at a minimum, and decoupled from your host computer. However, this line of thinking are not only applicable to the containers. You should start applying, at least the "keep dependencies at a minimum" part, with your Dockerfiles. Images are a very important part of your Docker setup: without images, you can't have containers! They are two parts of a whole: the bigger your image's size, the bigger the container size.
+
+Remember that the only thing that you host and your containers share, is the kernel. Everything that you install or copy onto your image will add up to its final size. Every `RUN` directive that has a package install command (`apt-get install` or `apk install`) will be saved on the image. If you're not careful, your image can become very heavy, very quickly. You might not even install that many things and still see your images reach one gigabyte of size, or even more.
+
+One of the main enablers of that situation is the package manager's cache system. You see, when you have to install a software, a general step required is to run `apt-get update` (supposing you're running Ubuntu as a base image) before running the command to install the software you need. This is because that command is responsible to download all package's information list, available on every repository registered on the O.S.. That list contains the repositories where the software is, so that the package manager can download it and install it. The "real" problem is that after downloading that information, it's cached.
+
+That behaviour is very welcome if you're running that on your host machine, avoiding having to download that information every time you try to update you system, but in the context of a Docker image, that's useless! After you install all the software you need, that cache is only occupying precious space as it's not needed to run the, already installed, software. By removing that cache information, you can save a lot of space.
 
 ---
 
