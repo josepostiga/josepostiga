@@ -14,7 +14,7 @@
 
     <h1 class="leading-none mt-1 mb-2">{{ $page->title }}</h1>
 
-    <p class="text-grey-darker text-xl md:mt-0">{{ $page->author }}  •  {{ date('d/m/Y', $page->date) }}</p>
+    <p class="text-grey-darker text-xl md:mt-0">{{ $page->author }}  •  {{ date('d/m/Y', $page->date) }}@if ($page->photo_credits)  •  <a href="{{ $page->photo_credits }}" target="_blank" rel="nofollow">Photo credits</a> @endif</p>
 
     <div class="mb-10 pb-4" v-pre>
         @yield('content')
