@@ -3,7 +3,8 @@ extends: _layouts.article
 section: content
 title: Running a smooth Docker stack for Web Development
 date: 2019-04-18
-cover_image: https://images.unsplash.com/photo-1511578194003-00c80e42dc9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80
+cover_image: https://images.unsplash.com/photo-1508404999913-79a3a2e75437?ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80
+photo_credits: https://unsplash.com/photos/M3yYOCob6kE
 description: "Let's skip the introductions and get down to business, baby!"
 ---
 
@@ -99,29 +100,219 @@ Now, you can run `composer`, `artisan` or any other command and have all the gen
 
 ## Let's play!
 
-Did you think I've forgotten about why you're reading this article? Of course not! Sorry for the delay, but I needed to first tell you about those details you just finished reading. But now, my young padawan, you're ready. So, without further ado, let's build an awesome stack for web development!
+Did you think I've forgotten about why you're reading this article? Of course not! Sorry for the delay, but now, my young padawan, you're ready. So, without further ado, let's build an awesome stack for web development!
 
 This is what we'll do:
-* We'll create an NGINX container, that'll be responsible to act as a reverse proxy for all the projects you'll work. This container will receive a request (http://you-awesome-project.test, for example) and redirect to the proper container, to be handled.
+* We'll create an NGINX container, that'll be responsible to act as a reverse proxy for all the projects you'll work. This container will receive a request (http://awesome-project.test, for example) and redirect to the proper container, to be handled.
 * We'll create a custom PHP image, based on an official image.
-* We'll create a docker-compose file that'll spin up the full stack infrastructure: server, application, database, and cache.
-
-The last point will try to simulate a real application environment, so you can see exactly what you can do with all the information on this article, and will help you understand it to a point where you should be capable of using it for your own projects.
+* We'll make them communicate with each other.
 
 So... Hold on and enjoy the ride!
 
 ### Starting with system architecture
 
-Like every new (tech) project, specifically infrastructure-related projects, we need to think, first, about how should we structure things... When I started to use Docker, I thought that I'd use a simple docker-compose file, on the root of my project, and be done with it. The infrastructure is project bounded, it's related and tightly coupled to it, so it made sense to manage the infrastructure that way. It seemed simple, too.
+Like every new (tech) project, specifically infrastructure-related projects, we need to think, first, about how should we structure things... When I started to use Docker, I thought that I'd use a simple docker-compose file on the root of my project and be done with it. The infrastructure is project bounded, it's related and tightly coupled to it, so it made sense to manage the infrastructure that way. It seemed simple, too. 
 
-However, I was not thinking about what to do with the Docker files, with service-related configuration files (e.g.: NGINX conf files or PHP's modules ini files). To handle this noise, I started using a `.docker` folder with everything inside, except the docker-compose file, which remains on the project root. This sounded liked a nice way to gently organize all my docker related files. The dot folder would hide it from the O.S. default file explorer and would put it on the top of the IDE/Code Editor file explorer (it could, even, be ignored by them). In spite of everything, that "special" folder could still be versioned and pushed to a remote code repository. Although there were many more files to manage, I would only have to worry about it once, so it still was "simple enough".
+However, I was not thinking about what to do with the Docker files, with service-related configuration files (e.g.: NGINX conf files or PHP's modules ini files). To handle this noise, I started using a `.docker` folder with everything inside, except the docker-compose file, which remained on the project root. This sounded liked a nice way to gently organize all my docker related files. The dot folder would hide it from the O.S. default file explorer and would put it on the top of the IDE/Code Editor file explorer (it could, even, be ignored by them). In spite of everything, that "special" folder could still be versioned and pushed to a remote code repository. Although there were many more files to manage, I would only have to worry about it once, so it still was "simple enough".
 
-Everything was fine until I started deploying things... All my infrastructure related files were coming attached to my code. Some sort of inception was going on, where I was creating a stack that'll deploy an application that had all infrastructure related files inside. That was not desired and, frankly, I hadn't thought about it until that time. Also, I was thinking that, although having the infrastructure definition on the project repository looked like I was helping others deploying, and testing, my work faster, the truth is that I was assuming that they'd use Docker, too. They could, but they don't have too... They could use other development environments, like virtual machines or, even, have all the dependencies installed on the host machine.
+Everything was fine until I started deploying things. All my infrastructure related files were deployed attached to my code. Some sort of inception was going on, where I was creating a stack that'll deploy an application that had all infrastructure related files inside, too. I thought that, although having the infrastructure definition on the project repository looked like I was helping others deploying, and testing, my work faster, the truth is that I was assuming that they'd use Docker, too. They could, but they didn't have too... They could use other development environments, like virtual machines or even have all the dependencies installed on the host machine.
 
-Another million possibilities crossed my mind so I decided to separate my infrastructure files from my projects and started to think about how could I manage it in a simple, eloquent, way. I found myself creating a dedicated folder for this on my system account's home directory (in Linux is `/home/{username}`) named `Docker`. Since a picture is worth a thousand words, here's a print of the base structure:
+Another million possibilities crossed my mind, so I decided to separate my infrastructure files from my project's and started to think about how could I manage it in a simple, eloquent, way. I needed to find a solution that would be easy to maintain, to version and to be simple enough to be rebuilt on another computer, if necessary. I found myself creating a dedicated folder for this on my system account's home directory (in Linux is `/home/{username}`) named `Infrastructure`. Inside this folder I have:
+ 
+ 1. A folder for each different, personalized, Docker Image (for PHP, NGINX and other I needed to tailor to my needs);
+ 2. A folder called `Stacks` containing dedicated `docker-compose` files, each corresponding to a project;
+ 3. A folder called `Volumes` containing all data that I need to persist from my running containers (like the database container's data);
+ 4. A folder called `Scripts` containing utility scripts for running cointainer's commands through the console (for example, running Composer or PHP).
 
-![Docker folder structure](/assets/images/articles/2019-04-18-docker-folder-structure.png "Docker folder structure")
+Here's a tree description of the folder:
 
-Besides the `Infrastructures` folder, which contains all docker-compose files for each project I work on, all others contain service related files with a mix of Dockerfiles, docker-compose files and, if needed, other types of files required for each service to run as I define. Having this structure helps me keeping everything organized but not all files are required to run the related services. Honestly, the only true important folders are the NGINX and PHP ones, which have specific configurations. The others are there mainly for reference or for holding the volumes' data folders (check Postgres and MariaDB folders) as they correspond to an official image on Docker Hub.
+```txt
+├── Nginx
+│   ├── certificates
+│   ├── conf
+│   ├── docker-compose.yml
+│   └── nginx.conf
+├── PHP
+│   └── 7.2
+│       ├── cli
+│       │   ├── conf
+│       │   │   └── xdebug.ini
+│       │   └── Dockerfile
+│       └── fpm
+│           ├── conf
+│           │   └── xdebug.ini
+│           └── Dockerfile
+├── Scripts
+│   ├── composer
+│   ├── dep
+│   ├── mkdocs
+│   ├── mysql
+│   ├── php
+│   ├── php5.6
+│   ├── phpcs
+│   ├── php-cs-fixer
+│   ├── phpinsights
+│   ├── psql
+│   ├── redis-cli
+│   └── yarn
+├── Stacks
+├── Volumes
+└── install.sh
+```
 
-The awesome part about this is that this folder can be versioned and since Docker allows me to replicate my infrastructure through the use of docker-composer files, I can quickly checkout this on another computer and have my development environment up-and-running in a very short period of time!
+Notice the `install.sh` file. This file is what helps me boot this whole infrastructure definition on a new computer, as well as update it when needed. That file has five execution steps:
+
+1. Creates all Docker networks that my stacks use;
+2. Pulls all latest images versions that my containers use from Docker HUB;
+3. Copies the Scripts folder's scripts to my `/usr/local/bin` folder, allowing me to use them globally on my computer;
+4. Installs globally required composer packages, like PHPunit, PHP-CS-Fixer and others alike;
+5. Boots the NGINX container, that acts as the reverse-proxy.
+
+This configuration allows me to version the whole folder, so I can quickly checkout it on another computer, run the `install.sh` script and have the exact same structure and scripts available in a very short time.
+
+### One NGINX container to rule them all
+
+As you may have notice, I use one NGINX container as a single reverse-proxy for all my (web) projects. It's really all that's needed! I understand that this may come to a shock to you, especially if you come from the several tutorials that exists on the web, where you'll have an http server service declared on your project's docker-compose file. You don't need that.
+
+The reality is that you'll be blindly copy and pasting the same configuration on every project you have. Unless you have a very specific need, you'll use the same http server with the same configuration and that, if you follow the tutorials, will end up in a bunch of duplicated files (assuming a `nginx.conf` and a `{project-name}.conf` file). There's a better way: use one, persistent, container. What do I mean with a "persistent" container is a container that has the `restart` directive property to `unless-stopped`. This marks the container to be permanently up. Even if some error occurs or the computer gets powered down, the Docker daemon will always try to reboot the container as fast as possible.
+
+Here's my NGINX configuration, to help you understand:
+
+```yaml
+version: "3.7"
+services:
+    nginx-lb:
+        container_name: nginx
+        image: nginx
+        ports:
+            - 80:80
+            - 443:443
+            - 8080:8080
+            - 8082:8082
+        volumes:
+            - ./nginx.conf:/etc/nginx/nginx.conf:ro
+            - ./certificates:/etc/nginx/certificates:ro
+            - ./conf:/etc/nginx/conf.d:ro
+            - ~/Code:/var/www/html
+        restart: unless-stopped
+        networks:
+            web:
+networks:
+    web:
+        external: true
+```
+
+The external `web` network is one of my two default Docker networks, and allows access, for this container, to all my other project's containers, enabling NGINX to proxy all incoming requests to the correct project, successfully. Also, note the volume mapping of my `Code` folder which is, unfortunately, a limitation of the NGINX software, requiring it to read the file first, to interpret the configuration rules and calculate which server/location blocks to route the request to.
+
+With this configuration, all I need to do to serve a new project configuration file to the `conf` folder (mapped on the volumes part of the previous shown configuration) and restart the container, besides having the source code on the `Code` folder.
+
+### Spinning up a project's container
+
+Now that we have our reverse-proxy set up, we're only missing one more thing to have our example project up and running: the project's running container. I mainly use PHP, so the project I'll talk here will be based on that language. Here's an example docker-compose file for spinning one real quick:
+
+```yaml
+version: "3.7"
+services:
+    services:
+        awesome-project:
+            build: ../../PHP/7.2/fpm
+            image: josepostiga/php:7.2-fpm
+            user: "1000:1000"
+            expose:
+                - 9000
+            volumes:
+                - ~/Code:/var/www/html
+            restart: unless-stopped
+            networks:
+                - web
+                - app
+networks:
+    app:
+    web:
+        external: true
+```
+
+Let's break this file, shall we? This file defines that we'll have a PHP 7.2 container, that'll be executing under a mapped user within system's ID/GROUP 1000 (remember these section, from before?), that exposes port 9000 to the host. Also, it has the host's `Code` folder mapped to the container's `/var/www/html` folder (that's where your code will exist), will always restart unless we issue a command to stop it (voluntarily) and has access to two networks: the `web` and `app`. Take a moment to sink this information in.
+
+So, you may be wondering why it has two networks defined. It's to separate and isolate access to services that only concerns this stack. For example, the database container should not be on the `web` network, because there's another container, the NGINX one, that also has access to that network. Does it makes sense to have them both on the same layer? No. We're simply talking about development environment, here, but it's not dificult to imagine a similar stack deployed on production and having unrelated services accessing the same network is a bad habit, because anyone with access to your NGINX container can, too, have access to your database container. It's a good habit to think about proper boundaries on your services and limit access where it's not needed. 
+
+So, the `web` network allows the NGINX container communicate with this PHP container and the `app` network allows this PHP container to access other, more reserved, services (like a database). You can add as many networks as you may see fit. Also, since the `app` network is not marked as `external`, Docker will have it namespaced to this stack, only, and even if you have the same name on any other project, they will not be able to access each other's services. It's a neat security feature.
+
+Moving on to the user/group mapping, this will only ensure that any file created on the container context (while it's running) has the same mapping has your system's user, allowing you to view, edit, and save them without having to use root privileges.
+
+The expose directive defined on which port the container will be reachable. Not that this is not a port mapping, so the port 9000 is still free, on the host, to be used by any program that needs it. It's just saying that if there's a request for this container, that it can use port 9000. This is easier to understand on the NGINX level, because that's the container that will use that port to send the request for PHP to process. 
+
+---
+
+## All togheter, now!
+
+Ok, now that we have both the reverse proxy as a container to serve, we need to understand how that all fits together, and enable communications between the two services, so that a project can be accessed properly. When a request comes to NGINX, it'll scan it to determine which domain it needs to route the request to the correct container. This happens on, what NGINX calls it, the server definition. That's why I've mapped a `conf` folder on the NGINX container. That's the folder that will container all the dedicated project configuration file. Here's an example of our `awesome-project.test` file:
+
+```
+server {
+    server_name awesome-project.test;
+    listen 80;
+
+    root /var/www/html/awesome-project/public;
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location = /favicon.ico { log_not_found off; access_log off; }
+    location = /robots.txt { log_not_found off; access_log off; }
+
+    error_page 404 /index.php;
+
+    location ~ \.php$ {
+        set $upstream awesome-project:9000;
+
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_pass $upstream;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+}
+```
+
+As you can see, this server block configuration file is set to handle requests for the `awesome-project.test` domain. So, when a request comes from that domain, the NGINX container will look on the defined root folder for any file that matches the first `location` definition. Assuming that it finds one that matches one of the patterns set, it'll then scan all of the `location` definitions (on this example file, there's one more) and if it can match the pattern (which is looking for any file ending in `.php`) then executes the block. And is in this second `location` block that all the magic happen.
+
+First and foremost, we're setting the container:port mapping in a variable. This is a very important part of the configuration, which avoids NGINX to malfunction, and enter a restart loop, if the container happens to not been started, yet, making all other projects that it may be responsible to handle, to not being processed at all! After that, NGINX compiles the path info and request and passes it to the destination container, through the exposed port (9000). After this, the PHP container will pick up the call, execute the code and return the response back to NGINX to be outputted to the user.
+
+## Extra points: utility scripts for daily usage
+
+Remember that `Scripts` folder? As I've said before, that folder contains several scripts I use to perform a lot of common tasks on my day-to-day work. By copying them to a `bin` folder, I can simulate the behaviour of any program as if it's installed on my computer, but, in fact, I'm running them in isolation, throught a Docker container. For example, the command to run Composer, which is a dependency manager for PHP, is the following:
+
+```sh
+#!/bin/sh
+docker run --rm -ti --user $(id -u):$(id -g) \
+    --volume ~/.config/composer:/tmp \
+    --volume $SSH_AUTH_SOCK:/ssh-auth.sock \
+    --volume /etc/passwd:/etc/passwd:ro \
+    --volume /etc/group:/etc/group:ro \
+    --volume $(pwd):/app \
+    --env SSH_AUTH_SOCK=/ssh-auth.sock \
+    composer $@
+```
+
+With this, I can run any composer command exactly as I would if I installed it on my computer, but without needing installing PHP and all it's dependencies, first. I just do `composer install` or `composer update` and be done with the task.
+
+Other example is for running Yarn commands. I have a script with the following command:
+
+```sh
+#!/bin/sh
+docker run --rm -ti	--user $(id -u):$(id -g) \
+	--volume $(pwd):/usr/src/app \
+	-w /usr/src/app \
+	node yarn $@
+```
+
+And I run it with a simple `yarn {my command here}`.
+
+This works absolutely perfect and without any hassle whatsoever. If I don't need it, anymore, I simply remove the script and that's it! No unnecessary dependencies laying around on my computer.
+
+## That's it!
+
+You now have a sweet infrastructure definition, an example of how to put different containers to communicate with each other, leveraging the power of the reverse-proxy capabilities of NGINX to serve several projects and, on top of that, you learned that you can use containers to run your everyday scripts and not needing to worry if its installed on your current working computer.
+
+Hope you enjoyed the article. If you have any questione, feel free to contact me on [Twitter](https://twitter.com/josepostiga). I'm more than happy to help you with any difficulty you may have while applying the knowledge available on this article.
