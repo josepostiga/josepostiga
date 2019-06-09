@@ -2,7 +2,7 @@
 extends: _layouts.article
 section: content
 title: Running a smooth Docker stack for Web Development
-date: 2019-04-18
+date: 2019-06-09
 cover_image: https://images.unsplash.com/photo-1508404999913-79a3a2e75437?ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80
 photo_credits: https://unsplash.com/photos/M3yYOCob6kE
 description: "Let's skip the introductions and get down to business, baby!"
