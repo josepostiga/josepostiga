@@ -2,7 +2,7 @@
 extends: _layouts.article
 section: content
 title: Running a smooth Docker stack for Web Development
-date: 2019-06-09
+date: 2019-06-12
 cover_image: https://images.unsplash.com/photo-1508404999913-79a3a2e75437?ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80
 photo_credits: https://unsplash.com/photos/M3yYOCob6kE
 description: "Let's skip the introductions and get down to business, baby!"
@@ -10,11 +10,11 @@ description: "Let's skip the introductions and get down to business, baby!"
 
 Docker is the best way to build, share and run applications in the cloud. There're no doubts about that! You literally only have to configure your infrastructure once, programmatically, and can run on every cloud provider. It's amazingly fast, too. No wonder that everyone is crazy about this technology and are using it to support their most critical business services.
 
-Surely you've also heard, and read, about teams using Docker in their development process, right? That you can get up and running, on any project, without messing around with your computer and not being worried about installing different (or specific) versions of a software language or any other dependency you might need. You simply `docker-compose up` and all services/dependencies are spawn and ready to use. Everything gets to run on an isolated container. Pretty cool, and it doesn't sound too complicated, right?
+Surely you've also heard, and read, about teams using Docker in their development process, right? That you can get up and running, on any project, without messing around with your computer and not being worried about installing different (or specific) versions of a software language or any other dependency you might need. You simply `docker-compose up` and all services/dependencies are spawn and ready to use. Everything gets to run on an isolated container.
 
-Well... As you'll see on this article, there're some details that make using Docker for development a real PITA! I've been using Docker for development for a little more than two years, at the time of writing this article, and I'd like to share how I've handled those details and got to a point of having a very smooth environment set up! My main goal is to enable you to acquire "hands-on" experience running Docker on your development workflow.
+I've been using Docker for development for a little more than two years, at the time of writing this article, and I'd like to share with you some details that'll make your experience with Docker, for development, a very smooth one. But before I dump all the knowledge to you, we'll start slow, by breaking my path to the final implementation into small parts, so you can understand where my decisions came from.
 
-But before I dump all the knowledge to you, we'll start slow, by breaking my path to the final implementation into small parts, so you can understand where my decisions came from. Let's get to it, shall we?
+Let's get to it, shall we?
 
 _Note: All examples will be oriented with web development in mind, but I think you can extrapolate to your situation, specifically._
 
@@ -155,7 +155,7 @@ Here's a tree description of the folder:
 └── install.sh
 ```
 
-This structure allows me to version the whole folder, except the `Volumes` folder (database data should not be versioned) so I can quickly check out it on another computer, run the `install.sh` script and have the exact same structure and scripts available in a very short time. That file has five execution steps:
+This structure allows me to version the whole folder, except the `Volumes` folder (database data should not be versioned) so I can quickly check it out on another computer, run the `install.sh` script and have the exact same structure and scripts available in a very short time. That file has five execution steps:
 
 1. Creates all Docker networks that my stacks use;
 2. Pulls all latest images versions that my containers use from Docker HUB;
@@ -167,7 +167,7 @@ This structure allows me to version the whole folder, except the `Volumes` folde
 
 Another detail on my infrastructure configuration is that I only use one NGINX container to serve all my (web) projects. If you've read any tutorial, on the web, about using Docker for development you'll remember the service definition for a HTTP server (either NGINX, Apache or Caddy) declared on your project's docker-compose file. There's no need for that, really.
 
-The reality is that if you follow those tutorials recommendations, you'll be repeating yourself over and over, again, by copying and pasting the same server configuration, on every project you have. Unless you have a very specific need for that, you'll most lickly use the same HTTP server, with the same configuration for every project you work on. 
+The reality is that if you follow those tutorials recommendations, you'll be repeating yourself over and over, again, by copying and pasting the same server configuration, on every project you have. Unless you have a very specific need for that, you'll most likely use the same HTTP server, with the same configuration for every project you work on. 
 
 Here's a better way: use one, persistent, container. What do I mean with a "persistent" is a container that has the `restart` directive property to `unless-stopped`. This marks the container to be permanently up, even if some error occurs or the computer gets powered down. The Docker daemon will always try to reboot the container as fast as possible after it stops unintentionally.
 
@@ -208,19 +208,18 @@ Having our reverse-proxy setup is nice, but we're still missing the project cont
 ```yaml
 version: "3.7"
 services:
-    services:
-        awesome-project:
-            build: ../../PHP/7.2/fpm
-            image: josepostiga/php:7.2-fpm
-            user: "1000:1000"
-            expose:
-                - 9000
-            volumes:
-                - ~/Code:/var/www/html
-            restart: unless-stopped
-            networks:
-                - web
-                - app
+    awesome-project:
+        build: ../../PHP/7.2/fpm
+        image: josepostiga/php:7.2-fpm
+        user: "1000:1000"
+        expose:
+            - 9000
+        volumes:
+            - ~/Code:/var/www/html
+        restart: unless-stopped
+        networks:
+            - web
+            - app
 networks:
     app:
     web:
@@ -274,7 +273,7 @@ server {
 
 As you can see, this server block configuration file is set to handle requests for an `awesome-project.test` domain. So, when a request comes from that domain, the NGINX container will look on the defined root folder for any file that matches the first `location` definition. Assuming that it finds one that matches one of the patterns set, it'll then scan all of the remaining `location` definitions (on this example file, there's one more) and if it can match the pattern (which is looking for any file ending in `.php`), then it executes the corresponding block instructions. And is in this second `location` block that all the magic happen.
 
-First and foremost, we're setting a `container:port` mapping in a variable. This is a very important part of the configuration, which avoids NGINX to malfunction, and enter a restart loop, if the container happens to not been started yet. If that would happen, all other projects that it may be responsible to handle wouldn't be processed! 
+First and foremost, we're setting a `container:port` mapping in a variable, `$upstream`. This is a very important part of the configuration, which avoids NGINX to malfunction, and enter a restart loop, if the container happens to not been started yet. If that would happen, all other projects that it may be responsible to handle wouldn't be processed! 
 
 After calcuating, and successfully resolving the project's container, NGINX compiles the path info and request, passing it to the destination container, through the defined port. After this, the PHP container will pick up the call, execute the code and return the response back to NGINX to be outputted to the user.
 
