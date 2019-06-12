@@ -44,7 +44,7 @@ Every command I add next will be run on top of this PHP 7.2 image, and have all 
 
 By using a base image that already has almost everything I need, I'm also limiting my responsibility. I don't have to worry about every command it takes to install PHP and I don't have to worry about managing or updating it. If by any chance, there's a new version of that base image, all I have to do is run the docker build command to fetch all updates available, directly related to the base image.
 
-### Condense as much commands as possible
+### Condense as many commands as possible
 
 To execute a command, after defining the base image, you use the `RUN` directive. This runs the given command during the image build process, while the final image is being compiled, and corresponds to a layer. Each layer, upon being executed, is cached. This prevents the `docker build` process to run every command, every time you execute it, saving you (sometimes a lot of) computation time.
 
