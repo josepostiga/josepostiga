@@ -1,7 +1,7 @@
 ---
 pagination:
     collection: journal
-    perPage: 5
+    perPage: 6
 ---
 @extends('_layouts.master')
 
@@ -13,9 +13,11 @@ pagination:
 @endpush
 
 @section('body')
-    @foreach ($pagination->items as $journal)
-        @include('_components.entry-preview-inline')
-    @endforeach
+    <div class="flex flex-wrap">
+        @foreach ($pagination->items as $journal)
+            @include('_components.entry-preview-inline')
+        @endforeach
+    </div>
 
     @if ($pagination->pages->count() > 1)
         <nav class="flex text-base my-8">

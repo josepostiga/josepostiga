@@ -1,4 +1,4 @@
-<div class="flex flex-col mb-6">
+<div class="flex w-full md:w-1/2 flex-col md:px-3 pb-6">
     @if ($journal->cover_image)
         <img src="{{ $journal->cover_image }}" alt="{{ $journal->title }} cover image" class="mb-2 w-full">
     @endif
