@@ -1,3 +1,8 @@
+---
+pagination:
+    collection: journal
+    perPage: 6
+---
 @extends('_layouts.master')
 
 @section('body')
@@ -37,21 +42,25 @@
         </div>
 
         <div class="flex-1 col-6 pl-0 md:pl-3">
-            <h3>Latest journal entry</h3>
+            <h3>Latest journal entries</h3>
 
-            <div class="flex flex-col mb-6">
-                @if ($journal->first()->cover_image)
-                    <img src="{{ $journal->first()->cover_image }}" alt="{{ $journal->first()->title }} cover image" class="mb-2 w-full">
-                @endif
+            @foreach ($pagination->items as $entry)
+                <div class="flex flex-row mb-2 items-start">
+                    @if ($entry->cover_image)
+                        <div class="w-1/3 md:w-1/6 mr-2">
+                            <img src="{{ $entry->cover_image }}" alt="{{ $entry->title }} cover image" class="w-full">
+                        </div>
+                    @endif
 
-                <h3 class="text-xl mt-1 mb-2 flex flex-row">
-                    <span class="text-sm text-grey-darker pt-1 pr-4">{{ $journal->first()->getDate()->format('d/m/Y') }}</span>
+                    <h3 class="flex flex-col text-base mt-0 w-2/3 md:w-5/6">
+                        <a href="{{ $entry->getUrl() }}" title="Read more - {{ $entry->title }}" class="text-black font-extrabold">
+                            {{ $entry->title }}
+                        </a>
 
-                    <a href="{{ $journal->first()->getUrl() }}" title="Read more - {{ $journal->first()->title }}" class="text-black font-extrabold">
-                        {{ $journal->first()->title }}
-                    </a>
-                </h3>
-            </div>
+                        <span class="text-xs text-grey-darker mt-1">{{ $entry->getDate()->format('d/m/Y') }}</span>
+                    </h3>
+                </div>
+            @endforeach
         </div>
     </div>
 @stop
