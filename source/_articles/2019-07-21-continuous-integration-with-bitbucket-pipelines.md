@@ -39,7 +39,7 @@ To be confident about the changes we continuously made to the project, and to mi
 
 Because we had a limited execution time, we couldn't include every push to the working branches but assumed that each developer would run the full test suite locally and only push the changes when they had them all passing. The pipeline would only continuously check the integration of all developers code into the development and the master branch, as we knew that those were the points in time were bugs, conflicts, and other problems could happen.
 
-We decided that the first project which we were to have the pipeline configured to test was our main API layer. It's the center of our work and the main source of business logic and data to our satellite projects (like the mobile app and the frontend layer). If it failed, then all other tools we provide were going to fail, too. Having this in mind, we started to map all the steps required to automatically instantiate the project and run the full test suite (unit and feature tests):
+We decided that the first project which we were to have the pipeline configured to test was our main API layer. It's where we have the main business logic and data, making it one of the main critical points of failure to our business. If it failed, then all other tools we provide were going to fail, too. Having this in mind, we started to map all the steps required to automatically instantiate the project and run the full test suite (unit and feature tests):
 
 1. Checkout the project from the repository.
 2. Install all the dependencies and instantiate a PostgreSQL database.
