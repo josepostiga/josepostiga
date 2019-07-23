@@ -8,7 +8,7 @@ photo_credits: https://unsplash.com/photos/842ofHC6MaI
 description: "How we automated integration testing in a simple and effective way at Infraspeak."
 ---
 
-> This article was originally submitted on the [Infraspeak tech blog](https://medium.com/infraspeak).
+> This article was originally submitted on the [Infraspeak tech blog](https://medium.com/infraspeak/continuous-integration-with-bitbucket-pipelines-96d1a55a28d1).
 
 Infraspeak is a startup founded in 2015, focused on developing the best maintenance management software in the market. Built around simplicity and a user-friendly UI/UX, we have more than 25000 buildings being managed every day, with the help of our product.
 
