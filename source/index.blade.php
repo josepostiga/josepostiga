@@ -31,13 +31,17 @@ pagination:
                     <img src="{{ $articles->first()->cover_image }}" alt="{{ $articles->first()->title }} cover image" class="mb-2 w-full">
                 @endif
 
-                <h3 class="text-xl mt-1 mb-2 flex flex-row">
+                <h3 class="text-xl mt-1 mb-1 flex flex-row">
                     <span class="text-sm text-grey-darker pt-1 pr-4">{{ $articles->first()->getDate()->format('d/m/Y') }}</span>
 
                     <a href="{{ $articles->first()->getUrl() }}" title="Read more - {{ $articles->first()->title }}" class="text-black font-extrabold">
                         {{ $articles->first()->title }}
                     </a>
                 </h3>
+
+                <p class="text-grey-darker mt-0">
+                    {{ $articles->first()->description }}
+                </p>
             </div>
         </div>
 
