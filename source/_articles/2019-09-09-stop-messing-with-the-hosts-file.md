@@ -2,13 +2,13 @@
 extends: _layouts.article
 section: content
 title: Stop Messing With The Hosts File
-date: 2019-09-08
+date: 2019-09-09
 cover_image: https://images.unsplash.com/photo-1465447142348-e9952c393450?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=968&q=80
 photo_credits: https://unsplash.com/photos/7nrsVjvALnA
 description: "How to leverage Dnsmasq to route all local development traffic to localhost."
 ---
 
-> This article was originally submitted on the [Infraspeak tech blog](https://medium.com/infraspeak/c).
+> This article was originally submitted on the [Infraspeak tech blog](https://medium.com/infraspeak/stop-messing-with-the-hosts-file-a760aa660c20).
 
 The hosts file is used by the system's DNS resolver to map a fully qualified domain name (FQDN) to its related IP, without the need to query any of the Internet's DNS servers. However, since updating this file, manually, by the common computer user would be impractical, its common use is to map the local IP 127.0.0.1 to localhost domain so that it resolves to the host machine.
 
