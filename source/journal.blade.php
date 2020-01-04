@@ -1,7 +1,7 @@
 ---
 pagination:
     collection: journal
-    perPage: 6
+    perPage: 4
 ---
 @extends('_layouts.master')
 

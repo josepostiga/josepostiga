@@ -57,11 +57,11 @@ pagination:
                     @endif
 
                     <h3 class="flex flex-col text-base mt-0 w-2/3 md:w-5/6">
-                        <a href="{{ $entry->getUrl() }}" title="Read more - {{ $entry->title }}" class="text-black font-extrabold">
+                        <span class="text-xs text-grey-darker mb-1">{{ $entry->getDate()->format('d/m/Y') }}</span>
+
+                        <a href="{{ $entry->getUrl() }}" title="Read more - {{ $entry->title }}" class="text-lg text-black font-bold">
                             {{ $entry->title }}
                         </a>
-
-                        <span class="text-xs text-grey-darker mt-1">{{ $entry->getDate()->format('d/m/Y') }}</span>
                     </h3>
                 </div>
             @endforeach
