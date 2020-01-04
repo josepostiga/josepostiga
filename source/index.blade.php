@@ -13,7 +13,7 @@ pagination:
 
         <p class="mb-6">I'm <a href="https://twitter.com/josepostiga" target="_blank">@josepostiga</a>, a Senior Backend Developer at <a href="https://twitter.com/infraspeak" target="_blank">@infraspeak</a> by day, a co-host on <a href="https://twitter.com/LaravelPortugal" target="_blank">@LaravelPortugal</a> Podcast and a contributor on various <a href="https://github.com/josepostiga" target="_blank">Open Source Software projects</a> by night!</p>
 
-        <p class="mb-6">I've been working with web-related technologies since 2008 and I'm experient with Symfony, Laravel and CodeIgniter (PHP), Bootstrap, TailwindCSS, Bulma, jQuery, Vue (HTML/CSS, JS) and AdonisJS (NodeJS). You can see my career history at <a href="https://www.linkedin.com/in/josepostiga/" target="_blank">LinkedIn</a>. </p>
+        <p class="mb-6">I've been working with web-related technologies since 2008 and I'm experient with Symfony, Laravel and CodeIgniter, Bootstrap, TailwindCSS, Bulma, jQuery and Vue. You can see my career history at <a href="https://www.linkedin.com/in/josepostiga/" target="_blank">LinkedIn</a>. </p>
 
         <p class="mb-6">Besides that, I like to write about <a href="/articles">tech/web/programming</a> topics and I talk a lot about my daily work on my <a href="/journal">journal</a>. Besides, I occasionally share pictures on my <a href="https://instagram.com/jose.postiga" target="_blank">Instagram</a>.</p>
 
