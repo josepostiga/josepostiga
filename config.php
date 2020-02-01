@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'baseUrl' => 'http://josepostiga.test',
+    'baseUrl' => 'https://josepostiga.test',
     'production' => false,
     'siteName' => 'José Postiga / Senior Backend Developer',
     'siteDescription' => 'This is my personal blog',
