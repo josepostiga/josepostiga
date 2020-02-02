@@ -31,8 +31,8 @@ pagination:
                     <img src="{{ $articles->first()->cover_image }}" alt="{{ $articles->first()->title }} cover image" class="mb-2 w-full">
                 @endif
 
-                <h4 class="text-xl mt-1 mb-1 flex flex-col md:flex-row">
-                    <span class="text-base md:text-2xl text-grey-darker pt-1 pr-4">{{ $articles->first()->getDate()->format('d/m/Y') }}</span>
+                <h4 class="text-xl mt-1 mb-1 flex flex-col md:flex-row md:items-center">
+                    <span class="text-base text-grey-darker py-0 pr-4">{{ $articles->first()->getDate()->format('d/m/Y') }}</span>
 
                     <a href="{{ $articles->first()->getUrl() }}" title="Read more - {{ $articles->first()->title }}" class="text-black font-extrabold">
                         {{ $articles->first()->title }}
@@ -57,7 +57,7 @@ pagination:
                     @endif
 
                     <h4 class="text-xl flex flex-col text-base mt-0 w-2/3 md:w-5/6">
-                        <span class="text-base md:text-2xl text-grey-darker pt-1 pr-4">{{ $entry->getDate()->format('d/m/Y') }}</span>
+                        <span class="text-base text-grey-darker pt-0 pb-1 pr-4">{{ $entry->getDate()->format('d/m/Y') }}</span>
 
                         <a href="{{ $entry->getUrl() }}" title="Read more - {{ $entry->title }}" class="text-lg text-black font-bold">
                             {{ $entry->title }}

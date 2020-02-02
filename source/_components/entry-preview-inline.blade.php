@@ -5,8 +5,8 @@
         </div>
     @endif
 
-    <h2 class="text-3xl mt-1 mb-1 flex flex-col md:flex-row">
-        <span class="text-xl md:text-2xl text-grey-darker pt-1 pr-4">{{ $journal->getDate()->format('d/m/Y') }}</span>
+    <h2 class="text-2xl mt-1 mb-1 flex flex-col">
+        <span class="text-xl text-grey-darker py-0 pr-4">{{ $journal->getDate()->format('d/m/Y') }}</span>
 
         <a href="{{ $journal->getUrl() }}" title="Read more - {{ $journal->title }}" class="text-black font-extrabold">
             {{ $journal->title }}
