@@ -38,6 +38,10 @@
                     <a title="{{ $page->siteName }} Articles" href="/articles" class="mr-5 text-grey-darker hover:text-blue-dark {{ $page->isActive('/articles') ? 'active text-blue-dark' : '' }}">
                         Articles
                     </a>
+
+                    <a title="{{ $page->siteName }} Talks" href="/talks" class="mr-5 text-grey-darker hover:text-blue-dark {{ $page->isActive('/talks') ? 'active text-blue-dark' : '' }}">
+                        Talks
+                    </a>
                 </nav>
 
                 <div id="vue-search" class="flex flex-1 justify-end items-center">
