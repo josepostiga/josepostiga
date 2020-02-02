@@ -43,15 +43,21 @@ pagination:
                 <small class="mr-2">06/06/2020</small>
                 <a href="https://commitporto.com/" target="_blank" rel="nofollow">CommitPorto</a>
                 <span class="inline-block bg-grey text-xs text-white ml-2 px-2 py-1 rounded-full font-semibold">
-                    pending
+                    waiting CFP
                 </span>
             </li>
-
             <li class="flex items-center mb-2">
                 <small class="mr-2">03/10/2020</small>
                 <a href="#" target="_blank" rel="nofollow">SPEAKING ABOUT - WEB & MOBILE DEVELOPMENT</a>
                 <span class="inline-block bg-green-light text-xs text-white ml-2 px-2 py-1 rounded-full font-semibold">
                     accepted
+                </span>
+            </li>
+            <li class="flex items-center mb-2">
+                <small class="mr-2">--/--/2020</small>
+                <a href="https://techinporto.com/" target="_blank" rel="nofollow">TechInPorto</a>
+                <span class="inline-block bg-grey text-xs text-white ml-2 px-2 py-1 rounded-full font-semibold">
+                    waiting CFP
                 </span>
             </li>
         </ul>
