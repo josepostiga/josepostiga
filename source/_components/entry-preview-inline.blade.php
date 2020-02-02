@@ -5,13 +5,13 @@
         </div>
     @endif
 
-    <h2 class="text-xl mt-1 mb-1 flex flex-col">
-        <span class="text-xs text-grey-darker pt-1 pb-1">{{ $journal->getDate()->format('d/m/Y') }}</span>
+    <h2 class="text-3xl mt-1 mb-1 flex flex-col md:flex-row">
+        <span class="text-xl md:text-2xl text-grey-darker pt-1 pr-4">{{ $journal->getDate()->format('d/m/Y') }}</span>
 
         <a href="{{ $journal->getUrl() }}" title="Read more - {{ $journal->title }}" class="text-black font-extrabold">
             {{ $journal->title }}
         </a>
     </h2>
 
-    <p class="text-base text-grey-darker mt-0">{{ $journal->description }}</p>
+    <p class="text-xl text-grey-darker mt-0">{{ $journal->description }}</p>
 </div>
