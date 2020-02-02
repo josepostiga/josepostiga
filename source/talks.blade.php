@@ -35,8 +35,8 @@ pagination:
             <li class="flex items-center mb-2">
                 <small class="mr-2">23/05/2020</small>
                 <a href="https://devday.io/" target="_blank" rel="nofollow">Faro DevDay</a>
-                <span class="inline-block bg-grey text-xs text-white ml-2 px-2 py-1 rounded-full font-semibold">
-                    pending
+                <span class="inline-block bg-orange-light text-xs text-white ml-2 px-2 py-1 rounded-full font-semibold">
+                    submitted
                 </span>
             </li>
             <li class="flex items-center mb-2">
