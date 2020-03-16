@@ -36,15 +36,6 @@ pagination:
         <ul>
             <li class="flex md:items-center mb-2 flex-col md:flex-row">
                 <div>
-                    <small class="mr-2">23/05/2020</small>
-                    <a href="https://devday.io/" target="_blank" rel="nofollow">Faro DevDay</a>
-                </div>
-                <span class="inline-block bg-orange-light text-xs text-white ml-2 px-2 py-1 rounded-full font-semibold">
-                    submitted
-                </span>
-            </li>
-            <li class="flex md:items-center mb-2 flex-col md:flex-row">
-                <div>
                     <small class="mr-2">06/06/2020</small>
                     <a href="https://commitporto.com/" target="_blank" rel="nofollow">CommitPorto</a>
                 </div>
@@ -59,6 +50,15 @@ pagination:
                 </div>
                 <span class="inline-block bg-green-light text-xs text-white ml-2 px-2 py-1 rounded-full font-semibold">
                     accepted
+                </span>
+            </li>
+            <li class="flex md:items-center mb-2 flex-col md:flex-row">
+                <div>
+                    <small class="mr-2">--/11/2020</small>
+                    <a href="https://devday.io/" target="_blank" rel="nofollow">Faro DevDay</a>
+                </div>
+                <span class="inline-block bg-orange-light text-xs text-white ml-2 px-2 py-1 rounded-full font-semibold">
+                    submitted
                 </span>
             </li>
             <li class="flex md:items-center mb-2 flex-col md:flex-row">
