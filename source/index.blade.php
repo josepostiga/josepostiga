@@ -9,7 +9,7 @@ pagination:
     <div class="block overflow-hidden">
         <h1>Hello!</h1>
 
-        <img src="https://gravatar.com/avatar/{{ md5('me@josepostiga.com') }}?s=250" alt="José Postiga" class="flex rounded-full h-64 w-64 bg-contain mx-auto md:float-right my-2 mb-4 md:ml-10">
+        <img src="https://gravatar.com/avatar/{{ md5('iamjosepostiga@gmail.com') }}?s=250" alt="José Postiga" class="flex rounded-full h-64 w-64 bg-contain mx-auto md:float-right my-2 mb-4 md:ml-10">
 
         <p class="mb-6">
             I'm <strong>José Postiga</strong>, a Senior Backend Developer at <a href="https://twitter.com/infraspeak" target="_blank">@infraspeak</a> by day, a co-host on <a href="https://twitter.com/LaravelPortugal" target="_blank">@LaravelPortugal</a> Podcast, and a contributor on various <a href="https://github.com/josepostiga" target="_blank">Open Source Software projects</a> by night!
