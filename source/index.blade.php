@@ -16,7 +16,7 @@ pagination:
         </p>
 
         <p class="mb-6">
-            I've been working with web-related technologies since 2008, mainly with Symfony, Laravel and CodeIgniter, Bootstrap, TailwindCSS, jQuery and VueJS. You can see my career history at <a href="https://www.linkedin.com/in/josepostiga/" target="_blank">LinkedIn</a>.
+            I've been working with web-related technologies since 2008, mainly with Symfony, Laravel and CodeIgniter, Bootstrap, TailwindCSS, jQuery and VueJS. I've also been getting very comfortable with DevOps, especially with Docker. You can see my career history at <a href="https://www.linkedin.com/in/josepostiga/" target="_blank">LinkedIn</a>.
         </p>
 
         <p class="mb-6">
