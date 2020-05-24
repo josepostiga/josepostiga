@@ -12,11 +12,11 @@ pagination:
         <img src="https://gravatar.com/avatar/{{ md5('me@josepostiga.com') }}?s=250" alt="José Postiga" class="flex rounded-full h-64 w-64 bg-contain mx-auto md:float-right my-2 mb-4 md:ml-10">
 
         <p class="mb-6">
-            I'm <strong>José Postiga</strong>, a Senior Backend Developer at <a href="https://twitter.com/infraspeak" target="_blank">@infraspeak</a> by day, a co-host on <a href="https://twitter.com/LaravelPortugal" target="_blank">@LaravelPortugal</a> Podcast and a contributor on various <a href="https://github.com/josepostiga" target="_blank">Open Source Software projects</a> by night!
+            I'm <strong>José Postiga</strong>, a Senior Backend Developer at <a href="https://twitter.com/infraspeak" target="_blank">@infraspeak</a> by day, a co-host on <a href="https://twitter.com/LaravelPortugal" target="_blank">@LaravelPortugal</a> Podcast, and a contributor on various <a href="https://github.com/josepostiga" target="_blank">Open Source Software projects</a> by night!
         </p>
 
         <p class="mb-6">
-            I've been working with web-related technologies since 2008 and I'm experient with Symfony, Laravel and CodeIgniter, Bootstrap, TailwindCSS, Bulma, jQuery and Vue. You can see my career history at <a href="https://www.linkedin.com/in/josepostiga/" target="_blank">LinkedIn</a>.
+            I've been working with web-related technologies since 2008, mainly with Symfony, Laravel and CodeIgniter, Bootstrap, TailwindCSS, jQuery and VueJS. You can see my career history at <a href="https://www.linkedin.com/in/josepostiga/" target="_blank">LinkedIn</a>.
         </p>
 
         <p class="mb-6">
