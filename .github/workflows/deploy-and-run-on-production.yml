@@ -1,0 +1,36 @@
+name: "Deploy and run"
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: deploy files to ${{ secrets.HOST }}
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.KEY }}
+          passphrase: ${{ secrets.KEY_PASS }}
+          port: ${{ secrets.PORT }}
+          source: "docker-compose.yml,docker-compose.prod.yml"
+          target: ${{ secrets.TARGET }}
+  run:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: start stack on ${{ secrets.HOST }}
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.KEY }}
+          passphrase: ${{ secrets.KEY_PASS }}
+          port: ${{ secrets.PORT }}
+          script: |
+            cd ${{ secrets.TARGET }}
+            docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
