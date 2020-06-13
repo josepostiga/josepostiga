@@ -1,0 +1,10 @@
+version: "3.7"
+
+services:
+  ghost:
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.josepostiga-blog.entrypoints=http"
+      - "traefik.http.routers.josepostiga-blog.rule=Host(`josepostiga.test`)"
+    environment:
+      url: http://josepostiga.test
