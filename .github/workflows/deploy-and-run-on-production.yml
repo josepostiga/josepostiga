@@ -1,4 +1,4 @@
-name: "Deploy and run"
+name: "Deploy and run to Production"
 on:
   push:
     branches:
@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: deploy files to ${{ secrets.HOST }}
+      - name: deploy files to production server
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.HOST }}
@@ -23,7 +23,7 @@ jobs:
     needs: deploy
     runs-on: ubuntu-latest
     steps:
-      - name: start stack on ${{ secrets.HOST }}
+      - name: init code on production
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
