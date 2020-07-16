@@ -1,6 +1,6 @@
 name: "Weekly Ghost docker image update on Production"
 on:
-  scheduled:
+  schedule:
     - cron: '0 0 * * 0'
 
 jobs:
