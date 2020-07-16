@@ -1,0 +1,22 @@
+name: "Weekly Ghost docker image update on Production"
+on:
+  scheduled:
+    - cron: '0 0 * * 0'
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: update services images
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.KEY }}
+          passphrase: ${{ secrets.KEY_PASS }}
+          port: ${{ secrets.PORT }}
+          script: |
+            cd ${{ secrets.TARGET }}
+            docker-compose -f docker-compose.yml -f docker-compose.prod.yml pull ghost
+            docker-compose -f docker-compose.yml -f docker-compose.prod.yml down
+            docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
