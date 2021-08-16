@@ -4,4 +4,4 @@ I've been working with web-related technologies since 2008 by developing well-te
 
 Besides that, I like to write about tech/web/programming topics and I talk a lot about my daily work in my [journal](https://josepostiga.com).
 
-You can see my career history at my [LinkedIn](https://www.linkedin.com/in/josepostiga/?locale=en_US) profile, and if you have any questions, or simply want to chat, contact me directly via e-mail or [Twitter](htpps://twitter.com/josepostiga). Come say hi!
+You can see my career history at my [LinkedIn](https://www.linkedin.com/in/josepostiga/?locale=en_US) profile, and if you have any questions, or simply want to chat, contact me directly via e-mail or [Twitter](https://twitter.com/josepostiga). Come say hi!
