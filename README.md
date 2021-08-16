@@ -1,7 +1,7 @@
-I'm José Postiga, Lead Backend Developer at [@infraspeak](https://infraspeak.com/), co-host on [@LaravelPortugal](https://twitter.com/LaravelPortugal) Podcast, and a contributor on various open-source software projects.
+I'm José Postiga. Lead Backend Developer at [Infraspeak](https://infraspeak.com). I contribute and volunteer to well-known projects like [Laravel-Portugal](https://github.com/laravel-portugal), [VOST](https://github.com/vostpt), and [Fogos.pt](https://github.com/fogospt). I'm also a speaker, mentor, and writer.
 
-I've been working with web-related technologies since 2008, mainly with PHP, Docker, PostgreSQL, developing well-tested APIs in service-oriented architectures, and implementing a culture of CI/CD. I also have experience with some frontend technologies (Bootstrap, TailwindCSS, jQuery, and a little of VueJS), Golang, and Kafka.
+I've been working with web-related technologies since 2008 by developing well-tested, scalable, APIs in service-oriented architectures. I've also been managing teams of multidisciplinary professionals, implementing a culture of continuous integration and delivery, documentation, and help developers improve their technical skills through one-on-one mentoring sessions.
 
 Besides that, I like to write about tech/web/programming topics and I talk a lot about my daily work in my [journal](https://josepostiga.com).
 
-You can contact me directly via [Twitter](https://twitter.com/josepostiga). Let's chat!
+You can see my career history at my [LinkedIn](https://www.linkedin.com/in/josepostiga/?locale=en_US) profile, and if you have any questions, or simply want to chat, contact me directly via e-mail or [Twitter](htps://twitter.com/josepostiga). Come say hi!
