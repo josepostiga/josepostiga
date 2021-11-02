@@ -1,4 +1,4 @@
-I'm José Postiga. Lead Backend Developer at [Infraspeak](https://infraspeak.com). I contribute and volunteer to well-known projects like [Laravel-Portugal](https://github.com/laravel-portugal), [VOST](https://github.com/vostpt), and [Fogos.pt](https://github.com/fogospt). I'm also a speaker, mentor, and writer.
+I'm José Postiga. Senior Lead Backend Developer at [Infraspeak](https://infraspeak.com). I contribute and volunteer to well-known projects like [Laravel-Portugal](https://github.com/laravel-portugal), [VOST](https://github.com/vostpt), and [Fogos.pt](https://github.com/fogospt). I'm also a speaker, mentor, and writer.
 
 I've been working with web-related technologies since 2008 by developing well-tested, scalable, APIs in service-oriented architectures. I've also been managing teams of multidisciplinary professionals, implementing a culture of continuous integration and delivery, documentation, and help developers improve their technical skills through one-on-one mentoring sessions.
 
