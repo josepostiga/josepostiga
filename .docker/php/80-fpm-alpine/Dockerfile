@@ -19,6 +19,7 @@ RUN cat /locale.md | xargs -i /usr/glibc-compat/bin/localedef -i {} -f UTF-8 {}.
 RUN apk --no-cache add \
     autoconf \
     gcc \
+    libmcrypt-dev \
     libpq-dev \
     libssl1.1 \
     libzip-dev \
@@ -35,13 +36,11 @@ RUN docker-php-ext-install \
     zip
 
 RUN pecl install mcrypt-1.0.4 && \
-    pecl install redis-5.3.4 && \
     pecl upgrade timezonedb-2021.5
 
 RUN docker-php-ext-enable \
     mcrypt \
     opcache \
-    redis \
     timezonedb
 
 COPY zz-docker.conf /usr/local/etc/php-fpm.d/zz-docker.conf
