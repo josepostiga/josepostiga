@@ -1,17 +1,9 @@
-# About me
+I’m José Postiga, and I am a Senior Software Engineer at Procuros.io. Previously, I held the position of Staff Software Engineer at Infraspeak.
 
-I’m José Postiga. Senior Backend Engineer @ [Procuros.io](https://procuros.io) (previously: Backend Staff Engineer at [Infraspeak](https://infraspeak.com)). I contribute and volunteer to well-known projects like PHP Portugal, Laravel-Portugal, VOST, Fogos.pt, and many others. I’m also a speaker, mentor, and writer.
+I’ve contributed to various open-source projects, including PHP Portugal, Laravel-Portugal, VOST, Fogos.pt, and the popular PHP framework Laravel. Additionally, I have experience as a speaker, mentor, writer, and podcaster.
 
-I’ve been developing well-tested, scalable, APIs in service-oriented architectures since 2008. I’ve also been managing teams of multidisciplinary professionals, implementing a culture of continuous integration and delivery, testing, documentation, and helping developers improve their technical skills through mentoring sessions and internal workshops. 
+Since 2008, I have been responsible for developing well-tested, scalable APIs in service-oriented architectures. I have also managed teams of multidisciplinary professionals, implementing a culture of continuous integration and delivery, testing, documentation, and providing mentorship to enhance developers’ technical skills.
 
-Besides that, I like to write about tech/web/programming topics and I talk a lot about my daily work in my [journal](https://josepostiga.com).
+In my spare time, I enjoy [writing](https://josepostiga.com) about technology, web development, and programming topics. I also maintain this blog where I document my work experiences and thoughts.
 
-You can see my career history at my [LinkedIn](https://www.linkedin.com/in/josepostiga/?locale=en_US) profile, and if you have any questions, or simply want to chat, contact me directly via [Telegram](https://t.me/josepostiga) or [Twitter](https://twitter.com/josepostiga). Come say hi!
-
-## Mentoring individuals to excellence
-
-Embark on a transformative journey towards unparalleled professional growth in the realm of software development and tech leadership through my mentoring sessions. With over 15 years of expertise in software design, architecture, testing, and project development, I am committed to guiding individuals towards reaching new heights in their careers.
-
-Whether you aspire to master intricate design patterns, refine your coding skills, or enhance your leadership capabilities, these sessions offer a tailored approach to accelerate your journey to the next level of professional excellence.
-
-Join me in unravelling the secrets of successful software development and leadership, and let’s forge a path to unparalleled success together. Get in touch via [Telegram](https://t.me/josepostiga) or [Twitter](https://twitter.com/josepostiga)!
+You can see my career history at my [LinkedIn](https://www.linkedin.com/in/josepostiga/?locale=en_US) profile, and follow me on [Bsky](https://bsky.app/profile/josepostiga.com), or [X](https://x.com/josepostiga) (formerly, Twitter). If you want, you can also contact me directly via [email](mailto:hello@josepostiga.com). Come say hi!
