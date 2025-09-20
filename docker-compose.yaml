@@ -1,0 +1,13 @@
+services:
+  buggregator:
+    labels:
+      - dev.orbstack.domains=buggregator.local
+      - dev.orbstack.http-port=8000
+    image: ghcr.io/buggregator/server
+    pull_policy: always
+    restart: unless-stopped
+    expose:
+      - 8000
+      - 1025
+      - 9912
+      - 9913
