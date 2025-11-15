@@ -1,0 +1,65 @@
+services:
+    web:
+        labels:
+            - dev.orbstack.domains=app.josepostiga.local
+            - dev.orbstack.http-port=8080
+        image: serversideup/php:8.4-fpm-nginx
+        environment:
+            PHP_OPCACHE_ENABLE: 0
+            PHP_OPCACHE_ENABLE_CLI: 0
+            PHP_XDEBUG_START_WITH_REQUEST: "yes"
+        volumes:
+            - .:/var/www/html
+        healthcheck:
+            test: [ "CMD", "healthcheck-fpm" ]
+            start_period: 10s
+
+    horizon:
+        image: serversideup/php:8.4-alpine
+        environment:
+            PHP_OPCACHE_ENABLE: 0
+            PHP_OPCACHE_ENABLE_CLI: 0
+        stop_signal: SIGTERM
+        command: [ "php", "/var/www/html/artisan", "horizon" ]
+        volumes:
+            - .:/var/www/html
+        healthcheck:
+            test: [ "CMD", "healthcheck-horizon" ]
+            start_period: 10s
+
+    scheduler:
+        image: serversideup/php:8.4-alpine
+        command: [ "php", "/var/www/html/artisan", "schedule:work" ]
+        environment:
+            PHP_OPCACHE_ENABLE: 0
+            PHP_OPCACHE_ENABLE_CLI: 0
+        volumes:
+            - .:/var/www/html
+        healthcheck:
+            test: [ "CMD", "healthcheck-schedule" ]
+            start_period: 10s
+
+    assets:
+        image: node:25-alpine
+        volumes:
+            - .:/var/www/html
+        working_dir: /var/www/html
+        command: sh -c "npm install && npm run dev"
+
+    cache:
+        labels:
+            - dev.orbstack.domains=cache.app.josepostiga.local
+        image: redis:8-alpine
+        restart: always
+        command: redis-server
+        expose:
+            - 6379
+        volumes:
+            - cache-data:/data
+        healthcheck:
+            test: [ 'CMD', 'redis-cli', 'ping' ]
+            retries: 3
+            timeout: 5s
+
+volumes:
+    cache-data:
