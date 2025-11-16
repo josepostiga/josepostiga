@@ -7,4 +7,4 @@ docker run --rm -it \
   -e PHP_OPCACHE_ENABLE_CLI=0 \
   -e COMPOSER_HOME=/tmp/composer \
   serversideup/php:8.4-alpine \
-  /tmp/composer/vendor/binlaravel "$@"
+  /tmp/composer/vendor/bin/laravel "$@"
