@@ -1,0 +1,10 @@
+#!/bin/sh
+docker run --rm -it \
+  -v ~/.config/composer:/tmp/composer \
+  -v "$(pwd)":/var/www/html \
+  -e PHP_MEMORY_LIMIT=-1 \
+  -e PHP_OPCACHE_ENABLE=0 \
+  -e PHP_OPCACHE_ENABLE_CLI=0 \
+  -e COMPOSER_HOME=/tmp/composer \
+  serversideup/php:8.4-alpine \
+  composer "$@"
